@@ -27,7 +27,9 @@ Base = automap_base()
 
 Base.prepare(engine, reflect=True)
 
-diagnosis_prediction = Base.classes.diagnosis_prediction
+# database tables
+symptoms = Base.classes.symptoms
+diseases = Base.classes.diseases
 
 app = Flask(__name__)
 # This statement is required for Flask to do its job. 
@@ -42,7 +44,6 @@ def IndexRoute():
 
     webpage = render_template("index.html")
     return webpage
-
 
 
 
