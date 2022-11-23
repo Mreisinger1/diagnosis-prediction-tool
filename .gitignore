@@ -6,6 +6,13 @@
 ### macOS ###
 .DS_Store
 
+### Python ###
+# Byte-compiled / optimized / DLL files
+config.py
+__pycache__/
+*.py[cod]
+*$py.class
+
 # User-specific files
 *.rsuser
 *.suo
