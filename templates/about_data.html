@@ -1,0 +1,885 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+
+        <!-- set the metadata -->
+        <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- set the title -->
+        <title>Diagnosis & Prediction Tool</title>
+
+        <!-- link to reset.css -->
+        <link rel="stylesheet" href="/static/css/reset.css">
+
+        <!-- link to bootstrap css -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx"
+            crossorigin="anonymous">
+
+        <!-- link to style.css -->
+        <link rel="stylesheet" href="/static/css/style.css">
+
+        <!-- import js libraries -->
+        <script src="https://d3js.org/d3.v7.min.js"></script>
+        <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    </head>
+
+    <body class="bg-light">
+
+        <!-- header -->
+        <div class="container-fullwidth">
+            <div class="col-md-12">
+                <nav class="navbar navbar-expand-lg navbar-dark bg-dark px-3">
+                    <div class="container-fluid">
+                        <a class="navbar-brand" href="/">Home</a>
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDarkDropdown" aria-controls="navbarNavDarkDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse justify-content-end" id="navbarNavDarkDropdown">
+                            <ul class="navbar-nav ms-auto">
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        Diagnoses
+                                    </a>
+                                    <ul class="dropdown-menu dropdown-menu-dark dropdown-menu-end">
+                                        <li><a class="dropdown-item" href="/diagnose_diseases_from_symptoms">Disease From Symptoms</a></li>
+                                        <li><a class="dropdown-item" href="/diagnose_condition_risk">Condition Risk</a></li>
+                                    </ul>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        Model Development
+                                    </a>
+                                    <ul class="dropdown-menu dropdown-menu-dark dropdown-menu-end">
+                                        <li><a class="dropdown-item" href="/model_disease_predictor">Disease Predictor</a></li>
+                                        <li><a class="dropdown-item" href="/model_stroke">Stroke</a></li>
+                                        <li><a class="dropdown-item" href="/model_hepatitis_c">Hepatitis-C</a></li>
+                                        <li><a class="dropdown-item" href="/model_cirrhosis">Cirrhosis</a></li>
+                                        <li><a class="dropdown-item" href="/model_heart_failure">Heart Failure</a></li>
+                                    </ul>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        About
+                                    </a>
+                                    <ul class="dropdown-menu dropdown-menu-dark dropdown-menu-end">
+                                        <li><a class="dropdown-item" href="/about_developers">The Developers</a></li>
+                                        <li><a class="dropdown-item" href="/about_data">The Data</a></li>
+                                        <li><a class="dropdown-item" href="/about_accreditations">Accreditations</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+
+        <!-- body -->
+        <div class="container my-3">
+            <div class="row">
+                <div class="col-md-12 my-3">
+                    <div class="fst-normal my-auto mx-3">
+                        <h4>
+                            Disease Symptom Prediction
+                        </h4>
+                        <h6>
+                            Source: <a class="link-dark" target="_blank" href="https://www.kaggle.com/datasets/itachi9604/disease-symptom-description-dataset">Kaggle</a>
+                        </h6>
+                        <div class="accordion" id="accordionExample">
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="headingOne">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                                        dataset.csv
+                                    </button>
+                                </h2>
+                                <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                                    <div class="accordion-body">
+                                        <div class="card rounded">
+                                            <table class="table table-hover table-striped rounded">
+                                                <thead>
+                                                    <th scope="col">#</th>
+                                                    <th scope="col">Characteristic</th>
+                                                    <th scope="col">Attribute Type</th>
+                                                    <th scope="col">Data Type</th>
+                                                    <th scope="col">Description</th>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <th scope="row">1</th>
+                                                        <td>symptom_1</td>
+                                                        <td>categorical</td>
+                                                        <td>string</td>
+                                                        <td>Symptom classification</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="row">2</th>
+                                                        <td>symptom_2</td>
+                                                        <td>categorical</td>
+                                                        <td>string</td>
+                                                        <td>Symptom classification</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="row">3</th>
+                                                        <td>symptom_3</td>
+                                                        <td>categorical</td>
+                                                        <td>string</td>
+                                                        <td>Symptom classification</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="row">4</th>
+                                                        <td>symptom_4</td>
+                                                        <td>categorical</td>
+                                                        <td>string</td>
+                                                        <td>Symptom classification</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="row">5</th>
+                                                        <td>symptom_5</td>
+                                                        <td>categorical</td>
+                                                        <td>string</td>
+                                                        <td>Symptom classification</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="row">6</th>
+                                                        <td>symptom_6</td>
+                                                        <td>categorical</td>
+                                                        <td>string</td>
+                                                        <td>Symptom classification</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="row">7</th>
+                                                        <td>symptom_7</td>
+                                                        <td>categorical</td>
+                                                        <td>string</td>
+                                                        <td>Symptom classification</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="row">8</th>
+                                                        <td>symptom_8</td>
+                                                        <td>categorical</td>
+                                                        <td>string</td>
+                                                        <td>Symptom classification</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="row">9</th>
+                                                        <td>symptom_9</td>
+                                                        <td>categorical</td>
+                                                        <td>string</td>
+                                                        <td>Symptom classification</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="row">10</th>
+                                                        <td>symptom_10</td>
+                                                        <td>categorical</td>
+                                                        <td>string</td>
+                                                        <td>Symptom classification</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="row">11</th>
+                                                        <td>symptom_11</td>
+                                                        <td>categorical</td>
+                                                        <td>string</td>
+                                                        <td>Symptom classification</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="row">12</th>
+                                                        <td>symptom_12</td>
+                                                        <td>categorical</td>
+                                                        <td>string</td>
+                                                        <td>Symptom classification</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="row">13</th>
+                                                        <td>symptom_13</td>
+                                                        <td>categorical</td>
+                                                        <td>string</td>
+                                                        <td>Symptom classification</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="row">14</th>
+                                                        <td>symptom_14</td>
+                                                        <td>categorical</td>
+                                                        <td>string</td>
+                                                        <td>Symptom classification</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="row">15</th>
+                                                        <td>symptom_15</td>
+                                                        <td>categorical</td>
+                                                        <td>string</td>
+                                                        <td>Symptom classification</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="row">16</th>
+                                                        <td>symptom_16</td>
+                                                        <td>categorical</td>
+                                                        <td>string</td>
+                                                        <td>Symptom classification</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="row">17</th>
+                                                        <td>symptom_17</td>
+                                                        <td>categorical</td>
+                                                        <td>string</td>
+                                                        <td>Symptom classification</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="headingTwo">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                        Symptom-severity.csv
+                                    </button>
+                                </h2>
+                                <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                                    <div class="accordion-body">
+                                        <div class="card rounded">
+                                            <table class="table table-hover table-striped rounded">
+                                                <thead>
+                                                    <th scope="col">#</th>
+                                                    <th scope="col">Characteristic</th>
+                                                    <th scope="col">Attribute Type</th>
+                                                    <th scope="col">Data Type</th>
+                                                    <th scope="col">Description</th>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <th scope="row">1</th>
+                                                        <td>symptom</td>
+                                                        <td>categorical</td>
+                                                        <td>string</td>
+                                                        <td>Symptom classification</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="row">2</th>
+                                                        <td>weight</td>
+                                                        <td>categorical</td>
+                                                        <td>integer</td>
+                                                        <td>The symptom's severity</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="headingThree">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                        symptom_Description.csv
+                                    </button>
+                                </h2>
+                                <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                                    <div class="accordion-body">
+                                        <div class="card rounded">
+                                            <table class="table table-hover table-striped rounded">
+                                                <thead>
+                                                    <th scope="col">#</th>
+                                                    <th scope="col">Characteristic</th>
+                                                    <th scope="col">Attribute Type</th>
+                                                    <th scope="col">Data Type</th>
+                                                    <th scope="col">Description</th>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <th scope="row">1</th>
+                                                        <td>disease</td>
+                                                        <td>categorical</td>
+                                                        <td>string</td>
+                                                        <td>The disease or condition's identifier</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="row">2</th>
+                                                        <td>description</td>
+                                                        <td>categorical</td>
+                                                        <td>string</td>
+                                                        <td>The disease or condition's description</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="headingFour">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                                        symptom_precaution.csv
+                                    </button>
+                                </h2>
+                                <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionExample">
+                                    <div class="accordion-body">
+                                        <div class="card rounded">
+                                            <table class="table table-hover table-striped rounded">
+                                                <thead>
+                                                    <th scope="col">#</th>
+                                                    <th scope="col">Characteristic</th>
+                                                    <th scope="col">Attribute Type</th>
+                                                    <th scope="col">Data Type</th>
+                                                    <th scope="col">Description</th>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <th scope="row">1</th>
+                                                        <td>disease</td>
+                                                        <td>categorical</td>
+                                                        <td>string</td>
+                                                        <td>The disease or condition's identifier</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="row">2</th>
+                                                        <td>precaution_1</td>
+                                                        <td>categorical</td>
+                                                        <td>string</td>
+                                                        <td>A precaution to take for the given condition.</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 my-3">
+                    <div class="fst-normal my-auto mx-3">
+                        <h4>
+                            Stroke Prediction Dataset
+                        </h4>
+                        <h6>
+                            Source: <a class="link-dark" target="_blank" href="https://www.kaggle.com/datasets/fedesoriano/stroke-prediction-dataset">Kaggle</a>
+                        </h6>
+                        <div class="accordion" id="accordionExample">
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="headingFive">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                                        healthcare-dataset-stroke-data.csv
+                                    </button>
+                                </h2>
+                                <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#accordionExample">
+                                    <div class="accordion-body">
+                                        <table class="table table-hover table-striped rounded">
+                                            <thead>
+                                                <th scope="col">#</th>
+                                                <th scope="col">Characteristic</th>
+                                                <th scope="col">Attribute Type</th>
+                                                <th scope="col">Data Type</th>
+                                                <th scope="col">Description</th>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <th scope="row">1</th>
+                                                    <td>id</td>
+                                                    <td>continuous</td>
+                                                    <td>integer</td>
+                                                    <td>Unique identifier</td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">2</th>
+                                                    <td>gender</td>
+                                                    <td>categorical</td>
+                                                    <td>string</td>
+                                                    <td>The subject's gender</td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">3</th>
+                                                    <td>age</td>
+                                                    <td>continuous</td>
+                                                    <td>integer</td>
+                                                    <td>The subject's age</td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">4</th>
+                                                    <td>hypertension</td>
+                                                    <td>categorical</td>
+                                                    <td>integer</td>
+                                                    <td>If the subject experiences high blood pressure</td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">5</th>
+                                                    <td>heart_disease</td>
+                                                    <td>categorical</td>
+                                                    <td>integer</td>
+                                                    <td>If the subject has experienced heart failure</td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">6</th>
+                                                    <td>ever_married</td>
+                                                    <td>categorical</td>
+                                                    <td>integer</td>
+                                                    <td>If the subject has ever been married</td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">7</th>
+                                                    <td>work_type</td>
+                                                    <td>categorical</td>
+                                                    <td>string</td>
+                                                    <td>The subject's type of work</td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">8</th>
+                                                    <td>residence_type</td>
+                                                    <td>categorical</td>
+                                                    <td>string</td>
+                                                    <td>The subject's residence</td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">9</th>
+                                                    <td>avg_glucose_level</td>
+                                                    <td>continuous</td>
+                                                    <td>float</td>
+                                                    <td>The subject's blood glucose content</td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">10</th>
+                                                    <td>bmi</td>
+                                                    <td>continuous</td>
+                                                    <td>float</td>
+                                                    <td>The subject's BMI</td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">11</th>
+                                                    <td>smoking_status</td>
+                                                    <td>categorical</td>
+                                                    <td>string</td>
+                                                    <td>The subject's smoking status</td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">12</th>
+                                                    <td>stroke</td>
+                                                    <td>categorical</td>
+                                                    <td>integer</td>
+                                                    <td>If the subject had experienced a stroke</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 my-3">
+                    <div class="fst-normal my-auto mx-3">
+                        <h4>
+                            Hepatitis C Prediction Dataset
+                        </h4>
+                        <h6>
+                            Source: <a class="link-dark" target="_blank" href="https://www.kaggle.com/datasets/fedesoriano/hepatitis-c-dataset">Kaggle</a>
+                        </h6>
+                        <div class="accordion" id="accordionExample">
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="headingSix">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+                                        HepatitisCdata.csv
+                                    </button>
+                                </h2>
+                                <div id="collapseSix" class="accordion-collapse collapse" aria-labelledby="headingSix" data-bs-parent="#accordionExample">
+                                    <div class="accordion-body">
+                                        <table class="table table-hover table-striped rounded">
+                                            <thead>
+                                                <th scope="col">#</th>
+                                                <th scope="col">Characteristic</th>
+                                                <th scope="col">Attribute Type</th>
+                                                <th scope="col">Data Type</th>
+                                                <th scope="col">Description</th>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <th scope="row">1</th>
+                                                    <td>id</td>
+                                                    <td>continuous</td>
+                                                    <td>integer</td>
+                                                    <td>Unique identifier</td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">2</th>
+                                                    <td>category</td>
+                                                    <td>categorical</td>
+                                                    <td>string</td>
+                                                    <td>Classification of the subject's condition</td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">3</th>
+                                                    <td>age</td>
+                                                    <td>continuous</td>
+                                                    <td>integer</td>
+                                                    <td>The subject's age</td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">4</th>
+                                                    <td>sex</td>
+                                                    <td>categorical</td>
+                                                    <td>string</td>
+                                                    <td>The subject's sex</td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">5</th>
+                                                    <td>alb</td>
+                                                    <td>continuous</td>
+                                                    <td>float</td>
+                                                    <td>The subject's albium level</td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">6</th>
+                                                    <td>alp</td>
+                                                    <td>continuous</td>
+                                                    <td>float</td>
+                                                    <td>The subject's alkaline phosphatase level</td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">7</th>
+                                                    <td>alt</td>
+                                                    <td>continuous</td>
+                                                    <td>float</td>
+                                                    <td>The subject's alanine transaminase level</td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">8</th>
+                                                    <td>ast</td>
+                                                    <td>continuous</td>
+                                                    <td>float</td>
+                                                    <td>The subject's aspartate transferase level</td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">9</th>
+                                                    <td>bil</td>
+                                                    <td>continuous</td>
+                                                    <td>float</td>
+                                                    <td>The subject's bilirubin level</td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">10</th>
+                                                    <td>che</td>
+                                                    <td>continuous</td>
+                                                    <td>float</td>
+                                                    <td>The subject's cholinesterase level</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 my-3">
+                    <div class="fst-normal my-auto mx-3">
+                        <h4>
+                            Cirrhosis Prediction Dataset
+                        </h4>
+                        <h6>
+                            Source: <a class="link-dark" target="_blank" href="https://www.kaggle.com/datasets/fedesoriano/cirrhosis-prediction-dataset">Kaggle</a>
+                        </h6>
+                        <div class="accordion" id="accordionExample">
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="headingSeven">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
+                                        cirrhosis.csv
+                                    </button>
+                                </h2>
+                                <div id="collapseSeven" class="accordion-collapse collapse" aria-labelledby="headingSeven" data-bs-parent="#accordionExample">
+                                    <div class="accordion-body">
+                                        <table class="table table-hover table-striped rounded">
+                                            <thead>
+                                                <th scope="col">#</th>
+                                                <th scope="col">Characteristic</th>
+                                                <th scope="col">Attribute Type</th>
+                                                <th scope="col">Data Type</th>
+                                                <th scope="col">Description</th>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <th scope="row">1</th>
+                                                    <td>id</td>
+                                                    <td>continuous</td>
+                                                    <td>integer</td>
+                                                    <td>Unique identifier</td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">2</th>
+                                                    <td>n_days</td>
+                                                    <td>continuous</td>
+                                                    <td>integer</td>
+                                                    <td>Count of days registration and either death, transplantation, or study analysis</td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">3</th>
+                                                    <td>status</td>
+                                                    <td>categorical</td>
+                                                    <td>string</td>
+                                                    <td>The subject's status</td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">4</th>
+                                                    <td>drug</td>
+                                                    <td>categorical</td>
+                                                    <td>string</td>
+                                                    <td>The subject's drug regimen</td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">5</th>
+                                                    <td>age</td>
+                                                    <td>continuous</td>
+                                                    <td>integer</td>
+                                                    <td>The subject's age</td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">6</th>
+                                                    <td>sex</td>
+                                                    <td>categorical</td>
+                                                    <td>string</td>
+                                                    <td>The subject's sex</td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">7</th>
+                                                    <td>ascites</td>
+                                                    <td>categorical</td>
+                                                    <td>string</td>
+                                                    <td>Presence of ascites in the subject's blood</td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">8</th>
+                                                    <td>hepatomegaly</td>
+                                                    <td>categorical</td>
+                                                    <td>string</td>
+                                                    <td>Presence of hepatomegaly in the subject's blood</td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">9</th>
+                                                    <td>spiders</td>
+                                                    <td>categorical</td>
+                                                    <td>string</td>
+                                                    <td>The presence of spiders</td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">10</th>
+                                                    <td>edema</td>
+                                                    <td>categorical</td>
+                                                    <td>string</td>
+                                                    <td>Presence of edema in the subject's blood</td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">11</th>
+                                                    <td>bilirubin</td>
+                                                    <td>continuous</td>
+                                                    <td>float</td>
+                                                    <td>The subject's bilirubin levels</td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">12</th>
+                                                    <td>cholesteral</td>
+                                                    <td>continuous</td>
+                                                    <td>float</td>
+                                                    <td>The subject's cholesteral level</td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">13</th>
+                                                    <td>albumin</td>
+                                                    <td>continuous</td>
+                                                    <td>float</td>
+                                                    <td>The subject's albumin level</td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">14</th>
+                                                    <td>copper</td>
+                                                    <td>continuous</td>
+                                                    <td>float</td>
+                                                    <td>The subject's copper level</td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">15</th>
+                                                    <td>alk_phos</td>
+                                                    <td>continuous</td>
+                                                    <td>float</td>
+                                                    <td>The subject's alkaline phosphatase level</td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">16</th>
+                                                    <td>sgot</td>
+                                                    <td>continuous</td>
+                                                    <td>float</td>
+                                                    <td>The subject's aspartate aminotransferase level</td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">17</th>
+                                                    <td>triglycerides</td>
+                                                    <td>continuous</td>
+                                                    <td>float</td>
+                                                    <td>The subject's triglycerides level</td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">18</th>
+                                                    <td>platelets</td>
+                                                    <td>continuous</td>
+                                                    <td>float</td>
+                                                    <td>The subject's platelets level</td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">19</th>
+                                                    <td>prothrombin</td>
+                                                    <td>continuous</td>
+                                                    <td>float</td>
+                                                    <td>The subject's prothrombin time</td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">20</th>
+                                                    <td>stage</td>
+                                                    <td>categorical</td>
+                                                    <td>integer</td>
+                                                    <td>The subject's stage of disease</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 my-3">
+                    <div class="fst-normal my-auto mx-3">
+                        <h4>
+                            Heart Failure Prediction Dataset
+                        </h4>
+                        <h6>
+                            Source: <a class="link-dark" target="_blank" href="https://www.kaggle.com/datasets/fedesoriano/heart-failure-prediction">Kaggle</a>
+                        </h6>
+                        <div class="accordion" id="accordionExample">
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="headingEight">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseEight" aria-expanded="false" aria-controls="collapseEight">
+                                        heart.csv
+                                    </button>
+                                </h2>
+                                <div id="collapseEight" class="accordion-collapse collapse" aria-labelledby="headingEight" data-bs-parent="#accordionExample">
+                                    <div class="accordion-body">
+                                        <table class="table table-hover table-striped rounded">
+                                            <thead>
+                                                <th scope="col">#</th>
+                                                <th scope="col">Characteristic</th>
+                                                <th scope="col">Attribute Type</th>
+                                                <th scope="col">Data Type</th>
+                                                <th scope="col">Description</th>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <th scope="row">1</th>
+                                                    <td>age</td>
+                                                    <td>continuous</td>
+                                                    <td>integer</td>
+                                                    <td>The subject's age</td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">2</th>
+                                                    <td>sex</td>
+                                                    <td>categorical</td>
+                                                    <td>string</td>
+                                                    <td>The subject's sex</td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">3</th>
+                                                    <td>chestpaintype</td>
+                                                    <td>categorical</td>
+                                                    <td>string</td>
+                                                    <td>Classification of the subject's chest pain</td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">4</th>
+                                                    <td>restingbp</td>
+                                                    <td>continuous</td>
+                                                    <td>float</td>
+                                                    <td>The subject's resting blood pressure</td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">5</th>
+                                                    <td>cholesterol</td>
+                                                    <td>continuous</td>
+                                                    <td>float</td>
+                                                    <td>The subject's cholesteral levels</td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">6</th>
+                                                    <td>fastingbs</td>
+                                                    <td>continuous</td>
+                                                    <td>float</td>
+                                                    <td>The subject's fasting blood pressure</td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">7</th>
+                                                    <td>restingecg</td>
+                                                    <td>categorical</td>
+                                                    <td>string</td>
+                                                    <td>Classification of the subject's resting EC results</td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">8</th>
+                                                    <td>maxhr</td>
+                                                    <td>continuous</td>
+                                                    <td>integer</td>
+                                                    <td>The subject's maximum heart rate</td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">9</th>
+                                                    <td>exerciseangina</td>
+                                                    <td>categorical</td>
+                                                    <td>string</td>
+                                                    <td>The precense of exercise induced angina</td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">10</th>
+                                                    <td>oldpeak</td>
+                                                    <td>continuous</td>
+                                                    <td>float</td>
+                                                    <td>Value of ST depression</td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">11</th>
+                                                    <td>st_slope</td>
+                                                    <td>categorical</td>
+                                                    <td>string</td>
+                                                    <td>Classification of the ST peak slope</td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">12</th>
+                                                    <td>heartdisease</td>
+                                                    <td>categorical</td>
+                                                    <td>integer</td>
+                                                    <td>The subject's heart disease status</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- import bootstrap js library -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+                integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+                crossorigin="anonymous"></script>
+        
+        <!-- import local js scripts -->
+        <script src="/static/js/logic.js"></script>
+    </body>
+</html>
