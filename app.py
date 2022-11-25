@@ -46,6 +46,35 @@ def IndexRoute():
     return webpage
 
 
+@app.route("/disease/")
+def disease():
+    # Create our session (link) from Python to the DB
+    session = Session(engine)
+
+    """Return a list of all diseases"""
+    # Query all diseases
+    results = session.query(disease.disease).all()
+
+    session.close()
+
+    # Convert list of tuples into normal list
+    all_disease= list(np.ravel(results))
+
+    return jsonify(all_disease)
+
+# diagnosis samples
+@app.route("/diagnosis_samples/")
+def diagnosis_samples():
+    return render_template("diagnosis_samples.html")
+
+
+# about page
+@app.route("/about/")
+def About_Data():
+    return render_template("about.html")
+
+
+
 
 
 
