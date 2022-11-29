@@ -1,42 +1,28 @@
-#Import Dependencies
-import numpy as np
-
+# import dependencies
 import pandas as pd
-from sqlalchemy.ext.automap import automap_base
-from sqlalchemy.orm import Session
-from flask import render_template
-from sqlalchemy import create_engine
+from flask import Flask, render_template
 
-from flask import Flask, jsonify
-
-# Import any remaining functions
-import json
-
-#Database Setup
-
-protocol = 'postgresql'
-username = 'postgres'
-password = 'bootcamp'
-host = 'localhost'
-port = 5432
-database_name = 'diagnosis_db'
-rds_connection_string = f'{protocol}://{username}:{password}@{host}:{port}/{database_name}'
-engine = create_engine(rds_connection_string)
-
-Base = automap_base()
-
-Base.prepare(engine, reflect=True)
-
-# database tables
-symptoms = Base.classes.symptoms
-diseases = Base.classes.diseases
-
+# instantiate the flask app and disable page caching
 app = Flask(__name__)
-# This statement is required for Flask to do its job. 
-app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0 # Effectively disables page caching
+app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
 
+# read in the symptom categories csv
+symptom_categories_df = pd.read_csv("Resources/symptom_categories.csv")
+categories = ["general_symptoms", "behavioral", "aches_pains", "diagnosed", "visual", "growth", "excretion", "degeneration"]
+fancy_categories = ["General Symptoms", "Behavioral", "Aches & Pains", "Diagnosed", "Visual", "Growth", "Excretion", "Degeneration"]
 
-#  Flask Routes-define the various application routes.
+# parse and store the symptoms into their categories
+category_data = []
+for i in range(len(categories)):
+    my_list = symptom_categories_df.loc[symptom_categories_df.category == categories[i], "symptom"].values.tolist()
+    pretty_list = symptom_categories_df.loc[symptom_categories_df.category == categories[i], "pretty_symptom"].values.tolist()
+    category_data.append({
+        "id": categories[i],
+        "category": fancy_categories[i],
+        "symptoms": my_list,
+        "pretty_symptoms": pretty_list,
+        "symptom_indices": [i for i in range(len(pretty_list))]
+    })
 
 # go to landing page
 @app.route("/")
@@ -46,7 +32,7 @@ def Landing_Page():
 # go to diagnosis of diseases from symptoms
 @app.route("/diagnose_diseases_from_symptoms/")
 def Diagnose_Diseases_From_Symptoms():
-    return render_template("diagnose_diseases_from_symptoms.html")
+    return render_template("diagnose_diseases_from_symptoms.html", categorical_data = category_data)
 
 # go to diagnosis of condition risk
 @app.route("/diagnose_condition_risk/")
@@ -93,26 +79,6 @@ def About_Data():
 def About_Accreditations():
     return render_template("about_accreditations.html")
 
-@app.route("/disease/")
-def disease():
-    # Create our session (link) from Python to the DB
-    session = Session(engine)
-
-    """Return a list of all diseases"""
-    # Query all diseases
-    results = session.query(disease.disease).all()
-
-    session.close()
-
-    # Convert list of tuples into normal list
-    all_disease= list(np.ravel(results))
-
-    return jsonify(all_disease)
-
-# diagnosis samples
-@app.route("/diagnosis_samples/")
-def diagnosis_samples():
-    return render_template("diagnosis_samples.html")
-
+# run the flask app
 if __name__ == "__main__":
     app.run(debug=True)

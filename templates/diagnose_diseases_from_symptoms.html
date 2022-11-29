@@ -82,91 +82,30 @@
             <div class="row">
                 <div class="col-md-12">
                     <h4>Symptom Selection</h4>
-                    <div class="accordion" id="accordionExample">
+                    <div class="accordion" id="accordion_symptoms">
+                        {% for item in categorical_data %}
                         <div class="accordion-item">
-                            <h2 class="accordion-header" id="heading_0">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse_0" aria-expanded="false" aria-controls="collapse_0">
-                                    Behavioral
+                            <h2 class="accordion-header" id="heading_{{ item.id }}">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse_{{ item.id }}" aria-expanded="false" aria-controls="collapse_{{ item.id }}">
+                                    {{ item.category }}
                                 </button>
                             </h2>
-                            <div id="collapse_0" class="accordion-collapse collapse" aria-labelledby="heading_0" data-bs-parent="#accordionExample">
+                            <div id="collapse_{{ item.id }}" class="accordion-collapse collapse" aria-labelledby="heading_{{ item.id }}" data-bs-parent="#accordion_symptoms">
                                 <div class="accordion-body">
+                                    {% for i in item.symptom_indices %}
                                     <div class="d-flex">
                                         <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                                            <label class="form-check-label" for="defaultCheck1">
-                                                
+                                            <input class="form-check-input" type="checkbox" value="{{ item.symptoms[i] }}" id="id_{{ item.symptoms[i] }}">
+                                            <label class="form-check-label" for="id_{{ item.symptoms[i] }}">
+                                                <p>{{ item.pretty_symptoms[i] }}</p>
                                             </label>
                                         </div>
                                     </div>
+                                    {% endfor %}
                                 </div>
                             </div>
                         </div>
-
-                        <div class="accordion-item">
-                            <h2 class="accordion-header" id="heading_1">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse_1" aria-expanded="false" aria-controls="collapse_1">
-                                    Aches & Pains
-                                </button>
-                            </h2>
-                            <div id="collapse_1" class="accordion-collapse collapse" aria-labelledby="heading_1" data-bs-parent="#accordionExample">
-                                <div class="accordion-body">
-                                    
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="accordion-item">
-                            <h2 class="accordion-header" id="heading_2">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse_2" aria-expanded="false" aria-controls="collapse_2">
-                                    Appearance
-                                </button>
-                            </h2>
-                            <div id="collapse_2" class="accordion-collapse collapse" aria-labelledby="heading_2" data-bs-parent="#accordionExample">
-                                <div class="accordion-body">
-                                    
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="accordion-item">
-                            <h2 class="accordion-header" id="heading_3">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse_3" aria-expanded="false" aria-controls="collapse_3">
-                                    General Wellbeing
-                                </button>
-                            </h2>
-                            <div id="collapse_3" class="accordion-collapse collapse" aria-labelledby="heading_3" data-bs-parent="#accordionExample">
-                                <div class="accordion-body">
-                                    
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="accordion-item">
-                            <h2 class="accordion-header" id="heading_4">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse_4" aria-expanded="false" aria-controls="collapse_4">
-                                    Growths
-                                </button>
-                            </h2>
-                            <div id="collapse_4" class="accordion-collapse collapse" aria-labelledby="heading_4" data-bs-parent="#accordionExample">
-                                <div class="accordion-body">
-                                    
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="accordion-item">
-                            <h2 class="accordion-header" id="heading_5">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse_5" aria-expanded="false" aria-controls="collapse_5">
-                                    Excretions
-                                </button>
-                            </h2>
-                            <div id="collapse_5" class="accordion-collapse collapse" aria-labelledby="heading_5" data-bs-parent="#accordionExample">
-                                <div class="accordion-body">
-                                    
-                                </div>
-                            </div>
-                        </div>
+                        {% endfor %}
                     </div>
                 </div>
             </div>
