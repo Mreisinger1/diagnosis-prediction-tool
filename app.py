@@ -34,35 +34,10 @@ def Landing_Page():
 def Diagnose_Diseases_From_Symptoms():
     return render_template("diagnose_diseases_from_symptoms.html", categorical_data = category_data)
 
-# go to diagnosis of condition risk
-@app.route("/diagnose_condition_risk/")
-def Diagnose_Condition_Risk():
-    return render_template("diagnose_condition_risk.html")
-
 # go to model development for disease predictor
 @app.route("/model_disease_predictor/")
 def Model_Disease_Predictor():
     return render_template("model_disease_predictor.html")
-
-# go to model development for stroke
-@app.route("/model_stroke/")
-def Model_Stroke():
-    return render_template("model_stroke.html")
-
-# go to model development for hepatitis-c
-@app.route("/model_hepatitis_c/")
-def Model_Hepatitis_C():
-    return render_template("model_hepatitis_c.html")
-
-# go to model development for cirrhosis
-@app.route("/model_cirrhosis/")
-def Model_Cirrhosis():
-    return render_template("model_cirrhosis.html")
-
-# go to model development for heart failure
-@app.route("/model_heart_failure/")
-def Model_Heart_Failure():
-    return render_template("model_heart_failure.html")
 
 # go to about the developers
 @app.route("/about_developers/")
