@@ -74,19 +74,19 @@
 
         <!-- body -->
         <div class="container my-3">
-            <div class="row">
-                <div class="col-md-12">
-                    <h4>Results</h4>
-                    <div class="input-group mb-3">
-                        <button class="btn btn-outline-secondary" type="button" id="button-addon1">Diagnose</button>
-                        <input type="text" readonly="true" class="form-control" placeholder="" aria-label="Prediction output">
+            <form action="{{ url_for('predict') }}" method="post">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h4>Results</h4>
+                        <div class="input-group mb-3">
+                            <button class="btn btn-outline-secondary" type="submit" id="button-addon1">Diagnose</button>
+                            <input type="text" readonly="true" class="form-control" placeholder="" aria-label="Prediction output">
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="col-md-12">
-                    <h4>Symptom Selection</h4>
-                    <form action="{{ url_for('predict') }}" method="post">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h4>Symptom Selection</h4>
                         <div class="accordion" id="accordion_symptoms">
                             {% for item in categorical_data %}
                             <div class="accordion-item">
@@ -100,7 +100,7 @@
                                         {% for i in item.symptom_indices %}
                                         <div class="d-flex">
                                             <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" value="{{ item.symptoms[i] }}" id="id_{{ item.symptoms[i] }}">
+                                                <input class="form-check-input" name="symptom_input" type="checkbox" value="{{ item.symptoms[i] }}" id="id_{{ item.symptoms[i] }}">
                                                 <label class="form-check-label" for="id_{{ item.symptoms[i] }}">
                                                     <p>{{ item.pretty_symptoms[i] }}</p>
                                                 </label>
@@ -112,9 +112,10 @@
                             </div>
                             {% endfor %}
                         </div>
-                    </form>
+                        
+                    </div>
                 </div>
-            </div>
+            </form>
         </div>
 
         <!-- import bootstrap js library -->

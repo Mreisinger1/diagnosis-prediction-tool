@@ -1,134 +1,132 @@
-category,symptom,pretty_symptom
-general_symptoms,itching,Itching
-visual,skin_rash,Skin Rash
-excretion,nodal_skin_eruptions,Nodal Skin Eruptions
-general_symptoms,continuous_sneezing,Continuous Sneezing
-general_symptoms,shivering,Shivering
-general_symptoms,chills,Chills
-aches_pains,joint_pain,Joint Pain
-aches_pains,stomach_pain,Stomach Pain
-general_symptoms,acidity,Acidity
-growth,ulcers_on_tongue,Ulcers On Tongue
-degeneration,muscle_wasting,Muscle Wasting
-excretion,vomiting,Vomiting
-aches_pains,burning_micturition,Burning Mictuition
-excretion,spotting_urination,Spotting Urination
-behavioral,fatigue,Fatigue
-general_symptoms,weight_gain,Weight Gain
-behavioral,anxiety,Anxiety
-general_symptoms,cold_hands_and_feets,Cold Hands and Feet
-behavioral,mood_swings,Mood Swings
-general_symptoms,weight_loss,Weight Loss
-behavioral,restlessness,Restlessness
-behavioral,lethargy,Lethargy
-visual,patches_in_throat,Patches in Throat
-diagnosed,irregular_sugar_level,Irregular Sugar Level
-general_symptoms,cough,Cough
-general_symptoms,hih_fever,High Fever
-visual,sunken_eyes, Sunken Eyes
-general_symptoms,breathlessness,Breathlessness
-general_symptoms,sweating,Sweating
-diagnosed,dehydration,Dehydration
-aches_pains,indigestion,Indigestion
-aches_pains,headache,Headache
-visual,yellowish_skin,Yellowish Skin
-visual,dark_urine,Dark Urine
-general_symptoms,nausea,Nausea
-behavioral,loss_of_appetite,Loss of Appetite
-aches_pains,pain_behind_the_eyes,Pain Behind the Eyes
-aches_pains,back_pain,Back Pain
-diagnosed,constipation,Constipation
-aches_pains,abdominal_pain,Abdominal Pain
-diagnosed,diarrhoea,Diarrhoea
-diagnosed,mild_fever,Mild Fever
-visual,yellow_urine,Yellow Urine
-visual,yellowing_of_eyes,Yellowing of Eyes
-diagnosed,acute_liver_failure,Acute Liver Failure
-general_symptoms,fluid_overload,Fluid Overload
-diagnosed,swelling_of_stomach,Swelling of Stomach
-diagnosed,swelled_lymph_nodes,Swelled Lymph Nodes
-behavioral,malaise,Malaise
-visual,blurred_and_distorted_vision,Blurred and Distorted Vision
-general_symptoms,phlegm,Phlegm
-aches_pains,throat_irritation,Throat Irritation
-visual,redness_of_eyes,Redness of Eyes
-aches_pains,sinus_pressure,Sinus Pressure
-general_symptoms,runny_nose,Runny Nose
-general_symptoms,congestion,Congestion
-aches_pains,chest_pain,Chest Pain
-general_symptoms,weakness_in_limbs,Weakness in Limbs
-diagnosed,fast_heart_rate,Fast Heart Rate
-aches_pains,pain_during_bowel_movements,Pain During Bowel Movements
-aches_pains,pain_in_anal_region,Pain in Anal Region
-visual,bloody_stool,Bloody Stool
-aches_pains,irritation_in_anus,Irritation in Anus
-aches_pains,neck_pain,Neck Pain
-general_symptoms,dizziness,Dizziness
-aches_pains,cramps,Cramps
-visual,bruising,Bruising
-diagnosed,obesity,Obesity
-visual,swollen_legs,Swollen Legs
-diagnosed,swollen_blood_vessels,Swollen Blood Vessels
-visual,puffy_face_and_eyes,Puffy Face and Eyes
-diagnosed,enlarged_thyroid,Enlarged Thyroid
-diagnosed,brittle_nails,Brittle Nails
-visual,swollen_extremeties,Swollen Extremeties
-behavioral,excessive_hunger,Excessive Hunger
-behavioral,extra_marital_contacts,Extra Marital Contacts
-diagnosed,drying_and_tingling_lips,Drying and Tingling Lips
-diagnosed,slurred_speech,Slurred Speech
-aches_pains,knee_pain,Knee Pain
-aches_pains,hip_joint_pain,Hip Joint Pain
-general_symptoms,muscle_weakness,Muscle Weakness
-aches_pains,stiff_neck,Stiff Neck
-visual,swelling_joints,Swelling Joints
-diagnosed,movement_stiffness,Movement Stiffness
-diagnosed,spinning_movements,Spinning Movements
-general_symptoms,loss_of_balance,Loss of Balance
-general_symptoms,unsteadiness,Unsteadiness
-diagnosed,weakness_of_one_body_side,Weakness of One Body Side
-diagnosed,loss_of_smell,Loss of Smell
-aches_pains,bladder_discomfort,Bladder Discomfort
-general_symptoms,foul_smell_ofurine,Foul Smell of Urine
-diagnosed,continuous_feel_of_urine,Continuous Feel of Urine
-diagnosed,passage_of_gases,Passage of Gas
-aches_pains,internal_itching,Internal Itching
-visual,toxic_look,Toxic Look
-behavioral,depression,Depression
-behavioral,irritability,Irritability
-aches_pains,muscle_pain,Muscle Pain
-general_symptoms,altered_sensorium,Altered Sensorium
-visual,red_spots_over_body,Red Spots Over Body
-aches_pains,belly_pain,Belly Pain
-aches_pains,abnormal_menstruation,Abnormal Menstruation
-visual,dischromic_patches,Dischromatic Patches
-visual,watering_from_eyes,Watering From Eyes
-behavioral,increased_appetite,Increased Appetite
-diagnosed,polyuria,Polyuria
-diagnosed,family_history,Family History
-excretion,mucoid_sputum,Mucoid Sputum
-excretion,rusty_sputum,Rusty Sputum
-behavioral,lack_of_concentration,Lack of Concentration
-visual,visual_disturbances,Visual Disturbances
-diagnosed,receiving_blood_transfusion,Recieving Blood Transfusion
-diagnosed,receiving_unsterile_injections,Receiving Unsterile Injections
-diagnosed,coma,Coma
-diagnosed,stomach_bleeding,Stomach Bleeding
-visual,distention_of_abdomen,Distention of Abdomen
-diagnosed,history_of_alcohol_consumption,History of Alcohol Consumption
-general_symptoms,fluid_overload,Fluid Overload
-visual,blood_in_sputum,Blood in Sputum
-visual,prominent_veins_on_calf,Prominent Veins in Calf
-visual,palpitations,Palpitations
-aches_pains,painful_walking,Painful Walking
-growth,pus_filled_pimples,Pus Filled Pimples
-growth,blackheads,Blackheads
-growth,scurring,Scurring
-degeneration,skin_peeling,Skin Peeling
-visual,silver_like_dusting,Silver Like Dusting
-visual,small_dents_in_nails,Small Dents in Nails
-visual,inflammatory_nails,Inflammatory Nails
-growth,blister,Blister
-growth,red_sore_around_nose,Red Sore Around Nose
-excretion,yellow_crust_ooze,Yellow Crust Ooze
-diagnosed,prognosis,Prognosis
+category,symptom,pretty_symptom,weight
+general_symptoms,itching,Itching,1
+visual,skin_rash,Skin Rash,3
+excretion,nodal_skin_eruptions,Nodal Skin Eruptions,4
+general_symptoms,continuous_sneezing,Continuous Sneezing,4
+general_symptoms,shivering,Shivering,5
+general_symptoms,chills,Chills,3
+aches_pains,joint_pain,Joint Pain,3
+aches_pains,stomach_pain,Stomach Pain,5
+general_symptoms,acidity,Acidity,3
+growth,ulcers_on_tongue,Ulcers On Tongue,4
+degeneration,muscle_wasting,Muscle Wasting,3
+excretion,vomiting,Vomiting,5
+aches_pains,burning_micturition,Burning Mictuition,6
+excretion,spotting_urination,Spotting Urination,6
+behavioral,fatigue,Fatigue,4
+general_symptoms,weight_gain,Weight Gain,3
+behavioral,anxiety,Anxiety,4
+general_symptoms,cold_hands_and_feets,Cold Hands and Feet,5
+behavioral,mood_swings,Mood Swings,3
+general_symptoms,weight_loss,Weight Loss,3
+behavioral,restlessness,Restlessness,5
+behavioral,lethargy,Lethargy,2
+visual,patches_in_throat,Patches in Throat,6
+diagnosed,irregular_sugar_level,Irregular Sugar Level,5
+general_symptoms,cough,Cough,4
+general_symptoms,high_fever,High Fever,7
+visual,sunken_eyes, Sunken Eyes,3
+general_symptoms,breathlessness,Breathlessness,4
+general_symptoms,sweating,Sweating,3
+diagnosed,dehydration,Dehydration,4
+aches_pains,indigestion,Indigestion,5
+aches_pains,headache,Headache,3
+visual,yellowish_skin,Yellowish Skin,3
+visual,dark_urine,Dark Urine,4
+general_symptoms,nausea,Nausea,5
+behavioral,loss_of_appetite,Loss of Appetite,4
+aches_pains,pain_behind_the_eyes,Pain Behind the Eyes,4
+aches_pains,back_pain,Back Pain,3
+diagnosed,constipation,Constipation,4
+aches_pains,abdominal_pain,Abdominal Pain,4
+diagnosed,diarrhoea,Diarrhoea,6
+diagnosed,mild_fever,Mild Fever,5
+visual,yellow_urine,Yellow Urine,4
+visual,yellowing_of_eyes,Yellowing of Eyes,4
+diagnosed,acute_liver_failure,Acute Liver Failure,6
+general_symptoms,fluid_overload,Fluid Overload,6
+diagnosed,swelling_of_stomach,Swelling of Stomach,7
+diagnosed,swelled_lymph_nodes,Swelled Lymph Nodes,6
+behavioral,malaise,Malaise,6
+visual,blurred_and_distorted_vision,Blurred and Distorted Vision,5
+general_symptoms,phlegm,Phlegm,5
+aches_pains,throat_irritation,Throat Irritation,4
+visual,redness_of_eyes,Redness of Eyes,5
+aches_pains,sinus_pressure,Sinus Pressure,4
+general_symptoms,runny_nose,Runny Nose,5
+general_symptoms,congestion,Congestion,5
+aches_pains,chest_pain,Chest Pain,7
+general_symptoms,weakness_in_limbs,Weakness in Limbs,7
+diagnosed,fast_heart_rate,Fast Heart Rate,5
+aches_pains,pain_during_bowel_movements,Pain During Bowel Movements,5
+aches_pains,pain_in_anal_region,Pain in Anal Region,6
+visual,bloody_stool,Bloody Stool,5
+aches_pains,irritation_in_anus,Irritation in Anus,6
+aches_pains,neck_pain,Neck Pain,5
+general_symptoms,dizziness,Dizziness,4
+aches_pains,cramps,Cramps,4
+visual,bruising,Bruising,4
+diagnosed,obesity,Obesity,4
+visual,swollen_legs,Swollen Legs,5
+diagnosed,swollen_blood_vessels,Swollen Blood Vessels,5
+visual,puffy_face_and_eyes,Puffy Face and Eyes,5
+diagnosed,enlarged_thyroid,Enlarged Thyroid,6
+diagnosed,brittle_nails,Brittle Nails,5
+visual,swollen_extremeties,Swollen Extremeties,5
+behavioral,excessive_hunger,Excessive Hunger,4
+behavioral,extra_marital_contacts,Extra Marital Contacts,5
+diagnosed,drying_and_tingling_lips,Drying and Tingling Lips,4
+diagnosed,slurred_speech,Slurred Speech,4
+aches_pains,knee_pain,Knee Pain,3
+aches_pains,hip_joint_pain,Hip Joint Pain,2
+general_symptoms,muscle_weakness,Muscle Weakness,2
+aches_pains,stiff_neck,Stiff Neck,4
+visual,swelling_joints,Swelling Joints,5
+diagnosed,movement_stiffness,Movement Stiffness,5
+diagnosed,spinning_movements,Spinning Movements,6
+general_symptoms,loss_of_balance,Loss of Balance,4
+general_symptoms,unsteadiness,Unsteadiness,4
+diagnosed,weakness_of_one_body_side,Weakness of One Body Side,4
+diagnosed,loss_of_smell,Loss of Smell,3
+aches_pains,bladder_discomfort,Bladder Discomfort,4
+general_symptoms,foul_smell_ofurine,Foul Smell of Urine,5
+diagnosed,continuous_feel_of_urine,Continuous Feel of Urine,6
+diagnosed,passage_of_gases,Passage of Gas,5
+aches_pains,internal_itching,Internal Itching,4
+visual,toxic_look_(typhos),Toxic Look,5
+behavioral,depression,Depression,3
+behavioral,irritability,Irritability,2
+aches_pains,muscle_pain,Muscle Pain,2
+general_symptoms,altered_sensorium,Altered Sensorium,2
+visual,red_spots_over_body,Red Spots Over Body,3
+aches_pains,belly_pain,Belly Pain,4
+aches_pains,abnormal_menstruation,Abnormal Menstruation,6
+visual,dischromic_patches,Dischromatic Patches,6
+visual,watering_from_eyes,Watering From Eyes,4
+behavioral,increased_appetite,Increased Appetite,5
+diagnosed,polyuria,Polyuria,4
+diagnosed,family_history,Family History,5
+excretion,mucoid_sputum,Mucoid Sputum,4
+excretion,rusty_sputum,Rusty Sputum,4
+behavioral,lack_of_concentration,Lack of Concentration,3
+visual,visual_disturbances,Visual Disturbances,3
+diagnosed,receiving_blood_transfusion,Recieving Blood Transfusion,5
+diagnosed,receiving_unsterile_injections,Receiving Unsterile Injections,2
+diagnosed,coma,Coma,7
+diagnosed,stomach_bleeding,Stomach Bleeding,6
+visual,distention_of_abdomen,Distention of Abdomen,4
+diagnosed,history_of_alcohol_consumption,History of Alcohol Consumption,5
+visual,blood_in_sputum,Blood in Sputum,5
+visual,prominent_veins_on_calf,Prominent Veins in Calf,6
+visual,palpitations,Palpitations,4
+aches_pains,painful_walking,Painful Walking,2
+growth,pus_filled_pimples,Pus Filled Pimples,2
+growth,blackheads,Blackheads,2
+growth,scurring,Scurring,2
+degeneration,skin_peeling,Skin Peeling,3
+visual,silver_like_dusting,Silver Like Dusting,2
+visual,small_dents_in_nails,Small Dents in Nails,2
+visual,inflammatory_nails,Inflammatory Nails,2
+growth,blister,Blister,4
+growth,red_sore_around_nose,Red Sore Around Nose,2
+excretion,yellow_crust_ooze,Yellow Crust Ooze,3

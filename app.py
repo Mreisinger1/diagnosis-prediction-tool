@@ -1,6 +1,8 @@
 # import dependencies
 import pandas as pd
-from flask import Flask, render_template
+from flask import Flask, request, render_template
+from pickle import load
+import numpy as np
 
 # instantiate the flask app and disable page caching
 app = Flask(__name__)
@@ -10,6 +12,12 @@ app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
 symptom_categories_df = pd.read_csv("Resources/symptom_categories.csv")
 categories = ["general_symptoms", "behavioral", "aches_pains", "diagnosed", "visual", "growth", "excretion", "degeneration"]
 fancy_categories = ["General Symptoms", "Behavioral", "Aches & Pains", "Diagnosed", "Visual", "Growth", "Excretion", "Degeneration"]
+
+# load the scaler
+scaler = load(open("Classification Models/scaler.pkl", "rb"))
+
+# load the model
+model = load(open("Classification Models/randomforest.pkl", "rb"))
 
 # parse and store the symptoms into their categories
 category_data = []
@@ -27,6 +35,37 @@ for i in range(len(categories)):
 # run the prediction
 @app.route("/predict", methods=["POST"])
 def predict():
+    
+    # retrieve list of checked symptoms
+    checked_features = request.form.getlist("symptom_input")
+    
+    # assemble list of all symptoms with checked values as their integer severity
+    features = []
+    for i, row in symptom_categories_df.iterrows():
+        if row["symptom"] in checked_features:
+            features.append(int(row["weight"]))
+        else:
+            features.append(0)
+    
+    # convert integer list into scikit-learn friendly list
+    final_features = [np.array(features)]
+    
+    # scale the final features
+    scaled_data = scaler.transform(final_features)
+    
+    # get the list of predictions
+    predictions = model.predict_proba(scaled_data)
+    prediction = model.predict(scaled_data)
+    
+    output_df = pd.DataFrame({
+        "condition": model.classes_.tolist(),
+        "probability": predictions[0].tolist()
+    })
+    
+    output_df = output_df.sort_values('probability', ascending = False)
+    print(f"Prediction: {prediction}")
+    print(output_df)
+    
     return render_template("diagnose_diseases_from_symptoms.html", categorical_data = category_data)
 
 # go to landing page
