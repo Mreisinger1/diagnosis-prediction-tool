@@ -76,32 +76,43 @@
         <div class="container my-3">
             <div class="row">
                 <div class="col-md-12">
+                    <h4>Results</h4>
+                    <div class="input-group mb-3">
+                        <button class="btn btn-outline-secondary" type="button" id="button-addon1">Diagnose</button>
+                        <input type="text" readonly="true" class="form-control" placeholder="" aria-label="Prediction output">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
                     <h4>Symptom Selection</h4>
-                    <div class="accordion" id="accordion_symptoms">
-                        {% for item in categorical_data %}
-                        <div class="accordion-item">
-                            <h2 class="accordion-header" id="heading_{{ item.id }}">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse_{{ item.id }}" aria-expanded="false" aria-controls="collapse_{{ item.id }}">
-                                    {{ item.category }}
-                                </button>
-                            </h2>
-                            <div id="collapse_{{ item.id }}" class="accordion-collapse collapse" aria-labelledby="heading_{{ item.id }}" data-bs-parent="#accordion_symptoms">
-                                <div class="accordion-body">
-                                    {% for i in item.symptom_indices %}
-                                    <div class="d-flex">
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value="{{ item.symptoms[i] }}" id="id_{{ item.symptoms[i] }}">
-                                            <label class="form-check-label" for="id_{{ item.symptoms[i] }}">
-                                                <p>{{ item.pretty_symptoms[i] }}</p>
-                                            </label>
+                    <form action="{{ url_for('predict') }}" method="post">
+                        <div class="accordion" id="accordion_symptoms">
+                            {% for item in categorical_data %}
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="heading_{{ item.id }}">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse_{{ item.id }}" aria-expanded="false" aria-controls="collapse_{{ item.id }}">
+                                        {{ item.category }}
+                                    </button>
+                                </h2>
+                                <div id="collapse_{{ item.id }}" class="accordion-collapse collapse" aria-labelledby="heading_{{ item.id }}" data-bs-parent="#accordion_symptoms">
+                                    <div class="accordion-body">
+                                        {% for i in item.symptom_indices %}
+                                        <div class="d-flex">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="{{ item.symptoms[i] }}" id="id_{{ item.symptoms[i] }}">
+                                                <label class="form-check-label" for="id_{{ item.symptoms[i] }}">
+                                                    <p>{{ item.pretty_symptoms[i] }}</p>
+                                                </label>
+                                            </div>
                                         </div>
+                                        {% endfor %}
                                     </div>
-                                    {% endfor %}
                                 </div>
                             </div>
+                            {% endfor %}
                         </div>
-                        {% endfor %}
-                    </div>
+                    </form>
                 </div>
             </div>
         </div>

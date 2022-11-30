@@ -24,6 +24,11 @@ for i in range(len(categories)):
         "symptom_indices": [i for i in range(len(pretty_list))]
     })
 
+# run the prediction
+@app.route("/predict", methods=["POST"])
+def predict():
+    return render_template("diagnose_diseases_from_symptoms.html", categorical_data = category_data)
+
 # go to landing page
 @app.route("/")
 def Landing_Page():
