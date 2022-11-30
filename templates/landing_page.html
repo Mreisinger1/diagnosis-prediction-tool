@@ -45,7 +45,6 @@
                                     </a>
                                     <ul class="dropdown-menu dropdown-menu-dark dropdown-menu-end">
                                         <li><a class="dropdown-item" href="/diagnose_diseases_from_symptoms">Disease From Symptoms</a></li>
-                                        <li><a class="dropdown-item" href="/diagnose_condition_risk">Condition Risk</a></li>
                                     </ul>
                                 </li>
                                 <li class="nav-item dropdown">
@@ -54,10 +53,6 @@
                                     </a>
                                     <ul class="dropdown-menu dropdown-menu-dark dropdown-menu-end">
                                         <li><a class="dropdown-item" href="/model_disease_predictor">Disease Predictor</a></li>
-                                        <li><a class="dropdown-item" href="/model_stroke">Stroke</a></li>
-                                        <li><a class="dropdown-item" href="/model_hepatitis_c">Hepatitis-C</a></li>
-                                        <li><a class="dropdown-item" href="/model_cirrhosis">Cirrhosis</a></li>
-                                        <li><a class="dropdown-item" href="/model_heart_failure">Heart Failure</a></li>
                                     </ul>
                                 </li>
                                 <li class="nav-item dropdown">
@@ -87,26 +82,16 @@
                     <p class="fst-normal">
                         Diagnosing medical conditions is a big part of fixing problems with one's health. 
                         With the advent of data science and machine learning, it is increasingly possible to put together models that will quickly give an answer. 
-                        This website is our attempt at creating models to...
+                        This website is our attempt at creating a model to diagnose a medical condition when given a set of symptoms.
                     </p>
-                    <ol>
-                        <li>1. Diagnose a medical condition when given a set of symptoms.</li>
-                        <li>2. Predict an individual's risk of having a stroke, developing Hepatitis-C or Cirrhosis, or experiencing heart failure.</li>
-                    </ol>
                     <h4>Operation</h4>
                     <p class="fst-normal">
-                        Use one of the options below to direct yourself to the proper prediction engine. Once there, please fill out the requested engine and hit 'Diagnose'.
+                        Use option below to direct yourself to the diagnosis engine. Once there, please fill out the requested engine and select 'Diagnose'.
                     </p>
                     <div class="card rounded m-3 bg-secondary">
                         <a href="/diagnose_diseases_from_symptoms" id="model_option" class="p-3 text-dark">
                             <h6 class="mb-1">Diagnosis Engine</h6>
                             <p class="mb-1">Use this option if you want a set of symptoms diagnosed.</p>
-                        </a>
-                    </div>
-                    <div class="card rounded m-3 bg-secondary">
-                        <a href="/diagnose_condition_risk" id="model_option" class="p-3 text-dark">
-                            <h6 class="mb-1">Risk Assessment Engine</h6>
-                            <p class="mb-1">Use this option if you want to see your likelihood of developing certain conditions.</p>
                         </a>
                     </div>
 
