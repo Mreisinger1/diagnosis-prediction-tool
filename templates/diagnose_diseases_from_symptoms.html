@@ -74,13 +74,13 @@
 
         <!-- body -->
         <div class="container my-3">
-            <form action="{{ url_for('predict') }}" method="post">
+            <form>
                 <div class="row">
                     <div class="col-md-12">
                         <h4>Results</h4>
                         <div class="input-group mb-3">
-                            <button class="btn btn-outline-secondary" type="submit" id="button-addon1">Diagnose</button>
-                            <input type="text" readonly="true" class="form-control" placeholder="" aria-label="Prediction output">
+                            <button class="btn btn-outline-secondary" type="button" id="button-addon1">Diagnose</button>
+                            <input type="text" readonly="true" id="main_condition_output" class="form-control" placeholder="" aria-label="Prediction output">
                         </div>
                     </div>
                 </div>
@@ -116,6 +116,7 @@
                     </div>
                 </div>
             </form>
+
         </div>
 
         <!-- import bootstrap js library -->
