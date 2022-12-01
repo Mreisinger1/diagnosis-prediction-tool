@@ -11,14 +11,14 @@ app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
 # read in the symptom categories csv
 symptom_categories_df = pd.read_csv("Resources/symptom_categories.csv")
 categories = ["general_symptoms", "behavioral", "aches_pains", "diagnosed", "visual", "growth", "excretion", "degeneration"]
-fancy_categories = ["General Symptoms", "Behavioral", "Aches & Pains", "Diagnosed", "Visual", "Growth", "Excretion", "Degeneration"]
+pretty_categories = ["General Symptoms", "Behavioral", "Aches & Pains", "Diagnosed", "Visual", "Growth", "Excretion", "Degeneration"]
 
 # load the scaler
 scaler = load(open("Classification Models/scaler.pkl", "rb"))
 
 # load the model
 model = load(open("Classification Models/randomforest.pkl", "rb"))
-
+# ="checkbox_ids.push(d3.select(""#id_"&B2&""").property(""value""));"
 # parse and store the symptoms into their categories
 category_data = []
 for i in range(len(categories)):
@@ -26,18 +26,21 @@ for i in range(len(categories)):
     pretty_list = symptom_categories_df.loc[symptom_categories_df.category == categories[i], "pretty_symptom"].values.tolist()
     category_data.append({
         "id": categories[i],
-        "category": fancy_categories[i],
+        "category": pretty_categories[i],
         "symptoms": my_list,
         "pretty_symptoms": pretty_list,
         "symptom_indices": [i for i in range(len(pretty_list))]
     })
 
 # run the prediction
-@app.route("/predict", methods=["POST"])
-def predict():
+@app.route("/diagnose_diseases_from_symptoms/get_prediction/<checked_str>/")
+def get_prediction_data(checked_str):
     
-    # retrieve list of checked symptoms
-    checked_features = request.form.getlist("symptom_input")
+    # retrieve string representation of checked symptoms
+    checked_features = []
+    for i in range(len(checked_str)):
+        if checked_str[i] == "1":
+            checked_features.append(symptom_categories_df["symptom"][i])
     
     # assemble list of all symptoms with checked values as their integer severity
     features = []
@@ -57,16 +60,58 @@ def predict():
     predictions = model.predict_proba(scaled_data)
     prediction = model.predict(scaled_data)
     
+    # associate and sort the prediction data
     output_df = pd.DataFrame({
         "condition": model.classes_.tolist(),
         "probability": predictions[0].tolist()
     })
-    
     output_df = output_df.sort_values('probability', ascending = False)
-    print(f"Prediction: {prediction}")
-    print(output_df)
     
-    return render_template("diagnose_diseases_from_symptoms.html", categorical_data = category_data)
+    # store the desired results in a dictionary
+    output_count = 5
+    output_dict = {
+        "prediction": prediction.tolist()[0],
+        "conditions": output_df["condition"].tolist()[0:output_count],
+        "probabilities": output_df["probability"].tolist()[0:output_count]
+    }
+    
+    return output_dict
+
+# # run the prediction
+# @app.route("/predict", methods=["POST"])
+# def predict():
+    
+#     # retrieve list of checked symptoms
+#     checked_features = request.form.getlist("symptom_input")
+    
+#     # assemble list of all symptoms with checked values as their integer severity
+#     features = []
+#     for i, row in symptom_categories_df.iterrows():
+#         if row["symptom"] in checked_features:
+#             features.append(int(row["weight"]))
+#         else:
+#             features.append(0)
+    
+#     # convert integer list into scikit-learn friendly list
+#     final_features = [np.array(features)]
+    
+#     # scale the final features
+#     scaled_data = scaler.transform(final_features)
+    
+#     # get the list of predictions
+#     predictions = model.predict_proba(scaled_data)
+#     prediction = model.predict(scaled_data)
+    
+#     output_df = pd.DataFrame({
+#         "condition": model.classes_.tolist(),
+#         "probability": predictions[0].tolist()
+#     })
+    
+#     output_df = output_df.sort_values('probability', ascending = False)
+#     print(f"Prediction: {prediction}")
+#     print(output_df)
+    
+#     return render_template("diagnose_diseases_from_symptoms.html", categorical_data = category_data)
 
 # go to landing page
 @app.route("/")
