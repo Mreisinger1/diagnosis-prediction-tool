@@ -80,21 +80,38 @@
                         <h4>Diagnosis</h4>
                         <div class="input-group mb-3">
                             <button class="btn btn-outline-secondary" type="button" id="button-addon1">Diagnose</button>
+                            <button class="btn btn-outline-secondary" type="button" id="button-addon2">Reset</button>
                             <input type="text" readonly="true" id="main_condition_output" class="form-control" placeholder="" aria-label="Prediction output">
                         </div>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-12">
-                        <h4>Expanded Results</h4>
+                        <h4>Results</h4>
                         <div class="accordion" id="accordion_detailed_results">
                             <div class="accordion-item">
-                                <h2 class="accordion-header" id="heading_results">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse_results" aria-expanded="false" aria-controls="collapse_results">
-                                        Plot
+                                <h2 class="accordion-header" id="heading_results_treatments">
+                                    <button class="accordion-button collapsed" id="conditional_accordion_button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse_results_treatments" aria-expanded="false" aria-controls="collapse_results_treatments" disabled>
+                                        Precautions and Possible Treatments
                                     </button>
                                 </h2>
-                                <div id="collapse_results" class="accordion-collapse collapse" aria-labelledby="heading_results" data-bs-parent="#accordion_detailed_results">
+                                <div id="collapse_results_treatments" class="accordion-collapse collapse" aria-labelledby="heading_results_treatments" data-bs-parent="#accordion_detailed_results">
+                                    <div class="accordion-body">
+                                        <ul class="list-group">
+                                            <li class="list-group-item" id="treatment1"></li>
+                                            <li class="list-group-item" id="treatment2"></li>
+                                            <li class="list-group-item" id="treatment3"></li>
+                                            <li class="list-group-item" id="treatment4"></li>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="heading_results_plot">
+                                    <button class="accordion-button collapsed" id="conditional_accordion_button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse_results_plot" aria-expanded="false" aria-controls="collapse_results_plot" disabled>
+                                        Other Possibilities
+                                    </button>
+                                </h2>
+                                <div id="collapse_results_plot" class="accordion-collapse collapse" aria-labelledby="heading_results_plot" data-bs-parent="#accordion_detailed_results">
                                     <div class="accordion-body">
                                         <div id="plot"></div>
                                     </div>
