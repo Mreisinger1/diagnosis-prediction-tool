@@ -3,8 +3,39 @@ console.log("logic.js is connected")
 // define command controls
 d3.select("#button-addon1").on("click", Diagnose);
 
-// define reference controls
+// initialize the web page
+init();
 
+// define the initialization logic
+function init()
+{
+    // define the plot's data object
+    let bar_trace = {
+        x: [1, 2, 3],
+        y: ["1", "2", "3"],
+        name: "Most Likely Conditions",
+        type: "bar",
+        orientation: "h"
+    };
+
+    // store the plot's data object in a trace
+    let bar_traceData = [bar_trace];
+
+    // define the plot's layout
+    let bar_layout = {
+        autosize: true,
+        xaxis: {
+            title: "Probability"
+        },
+        yaxis: {
+            automargin: true,
+            title: "Conditions"
+        }
+    };
+
+    // create the Plotly bar plot
+    Plotly.newPlot("plot", bar_traceData, bar_layout);
+}
 
 // define the diagnose click event
 function Diagnose()
@@ -142,14 +173,15 @@ function Diagnose()
     checkbox_ids.push(d3.select("#id_red_sore_around_nose"));
     checkbox_ids.push(d3.select("#id_yellow_crust_ooze"));
 
-    checked_items = []
+    // convert the checked items into a Flask friendly format
     checked_str = ""
+    symptom_checked = false;
     for (let i = 0; i < checkbox_ids.length; i++)
     {
         if (checkbox_ids[i].property("checked"))
         {
             checked_str += "1"
-            checked_items.push(checkbox_ids[i].property("id").substring(3));
+            symptom_checked = true;
         }
         else
         {
@@ -157,14 +189,19 @@ function Diagnose()
         }
     }
 
-    console.log("Diagnose Event");
-    console.log(checked_str);
-
-    // call the flask server
-    d3.json(`get_prediction/${checked_str}/`).then(function (data)
+    // call the flask server if there is at least one symptom selected
+    if (symptom_checked)
     {
-        console.log(data);
+        d3.json(`get_prediction/${checked_str}/`).then(function (data)
+        {
+            x = data.probabilities;
+            y = data.conditions;
 
-        d3.select("#main_condition_output").property("value", data.prediction);
-    });
+            Plotly.restyle("plot", "x", [x]);
+            Plotly.restyle("plot", "y", [y]);
+
+            // place the main condition output in the diagnosis bar
+            d3.select("#main_condition_output").property("value", data.prediction);
+        });
+    }
 }
