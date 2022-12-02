@@ -9,6 +9,7 @@ app = Flask(__name__)
 app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
 
 # read in the symptom categories csv
+condition_treatments_df = pd.read_csv("Resources/symptom_precaution.csv")
 symptom_categories_df = pd.read_csv("Resources/symptom_categories.csv")
 categories = ["general_symptoms", "behavioral", "aches_pains", "diagnosed", "visual", "growth", "excretion", "degeneration"]
 pretty_categories = ["General Symptoms", "Behavioral", "Aches & Pains", "Diagnosed", "Visual", "Growth", "Excretion", "Degeneration"]
@@ -67,12 +68,16 @@ def get_prediction_data(checked_str):
     })
     output_df = output_df.sort_values('probability', ascending = False)
     
+    # assign treatments to the primary condition
+    treatments = condition_treatments_df.loc[condition_treatments_df.Disease == prediction.tolist()[0], ["Precaution_1", "Precaution_2", "Precaution_3", "Precaution_4"]].values.tolist()
+    
     # store the desired results in a dictionary
     output_count = 5
     output_dict = {
         "prediction": prediction.tolist()[0],
         "conditions": output_df["condition"].tolist()[0:output_count],
-        "probabilities": output_df["probability"].tolist()[0:output_count]
+        "probabilities": output_df["probability"].tolist()[0:output_count],
+        "treatments": treatments[0]
     }
     
     return output_dict
