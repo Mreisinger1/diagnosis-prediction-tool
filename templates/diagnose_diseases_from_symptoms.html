@@ -77,7 +77,7 @@
             <form>
                 <div class="row">
                     <div class="col-md-12">
-                        <h4>Results</h4>
+                        <h4>Diagnosis</h4>
                         <div class="input-group mb-3">
                             <button class="btn btn-outline-secondary" type="button" id="button-addon1">Diagnose</button>
                             <input type="text" readonly="true" id="main_condition_output" class="form-control" placeholder="" aria-label="Prediction output">
@@ -85,6 +85,25 @@
                     </div>
                 </div>
                 <div class="row">
+                    <div class="col-md-12">
+                        <h4>Expanded Results</h4>
+                        <div class="accordion" id="accordion_detailed_results">
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="heading_results">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse_results" aria-expanded="false" aria-controls="collapse_results">
+                                        Plot
+                                    </button>
+                                </h2>
+                                <div id="collapse_results" class="accordion-collapse collapse" aria-labelledby="heading_results" data-bs-parent="#accordion_detailed_results">
+                                    <div class="accordion-body">
+                                        <div id="plot"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row my-3">
                     <div class="col-md-12">
                         <h4>Symptom Selection</h4>
                         <div class="accordion" id="accordion_symptoms">
