@@ -19,8 +19,9 @@ This code base includes the files for an website for a user to indicate symptoms
         * symptom_precaution.csv:  File containing precautions to be taken for each disease
         * Symptom-severity.csv: File containing the weight/severity value of each symptom
 
-## Database
-The data for the dashboard is saved in a PostgreSQL database ``diagnosis_db``.  In order to recreate the website, you will need to follow the steps below for creating the database and running the ETL scripts to prepare and load the data to the database.
+## Data Files
+The 4 data files were cleaned up and combined to output 2 csv files.
+
 
 ### Schema for database:
 
