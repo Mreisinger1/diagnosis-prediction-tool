@@ -22,31 +22,24 @@ This code base includes the files for an website for a user to indicate symptoms
 ## Data Files
 The 4 data files were cleaned up and combined to output 2 csv files.
 
-
-### Schema for database:
-
-![alt text](/Resources/DB_files/DB_schema.png)
-
-
-## Instructions to recreate the PostgreSQL database housing the disease and diagnosis sample data
-
- 1. Clone the Repo git@github.com:Mreisinger1/diagnosis-prediction-tool.git
- 1. Create a `config.py` file in the **Resources** directory to contain your PostgreSQL/PGAdmin information. You can use the template : `Resources/config_template.py` as a guide.
- 1. Add the information below to your `config.py`:
-	1. myusername = `<your username goes here>`
-	1. mypassword = `<your password goes here>`
-	1. myport_number = `<your port number goes here>`
- 1. Confirm you have pgAdmin PostgreSQL installed on your computer
- 1. Run ``jupyter notebook`` and open ``ETL/Diagnosis_ETL.ipynb`` - run this in an environment that has `pandas`, `sqlalchemy`, `sqlalchemy_utils`, and `python 3.8`
- 1. Run the notebook.
- 1. Use the test queries in ``Resources/test_files/diagnosis_db_test.sql`` to validate you successfully loaded the data.
-
 ## Data Access Layer
 A Flask server is used to access the data and serve it to the website.  There are X routes used to gather data for the various sites/visualizations on the site.
 
 ## Model for predicting diagnosis
+There were 4 different supervised learning models created in an effort to identify the best option for our predictive classification.
+
+### 1.  KNN
+
+### 2.  Naive Bayes
+
+### 3.  SVM
+
+### 4.  Random Forest
+Random Forest ended up being the chosen model for our prediction.
+
+![alt text](/Classification%20Models/RF/RandomForest_Visualization2.png)
 
 ## Interface Layer
-The interface was created in html, and javascript is used to dynamically draw the visualizations and provide the interactive components of our predictor.  A style sheet was used to apply custom styles to the dashboard features.
+The interface was created in html, and javascript is used to provide the interactive components of our predictor.  A style sheet was used to apply custom styles to the dashboard features.
 
 

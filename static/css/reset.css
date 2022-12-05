@@ -133,10 +133,10 @@ q:after {
 
 }
 
-table {
+table, th, td {
   
   /* Visual */
   border-collapse: collapse;
   border-spacing: 0;
-
+  border: 1px solid black;
 }
