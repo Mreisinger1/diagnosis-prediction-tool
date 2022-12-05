@@ -76,36 +76,148 @@
                     <!-- title -->
                     <h4>Classification Models</h4>
                     <p class="fst-normal">
-                        We used 5 different types of classification models to train and test our data.
+                        We evaluated 5 different types of classification models before we chose the model to be used for the predictor.
                     </p>
-                    
-                   
-                    <h4>KNN: Logistic Regression Friendly Neighbor </h4>
-                    <p class="fst-normal">
-                        After looping through a range of odd k values to calculate the score we found that the training and testing scores were 100%. 
-                    </p>
-                    
-                    <h4>Naive Bayes</h4>
-                    <p class="fst-normal">
-                        After performing The training and testing sets were both 100% or close to it. Based on this alone we were unsure if our model was being over trained. 
-                    </p>
-
-                    <h4> Decision Tree</h4>
-                    <p class="fst-normal">
+                    <div class="accordion" id="accordionExample">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingOne">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                                    <h4>KNN: Logistic Regression Friendly Neighbor </h4>
+                                </button>
+                            </h2>
+                            <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                                <div class="accordion-body">
+                                    <div class="card rounded">
+                                        <p class="fst-normal">
+                                            After looping through a range of odd k values to calculate the score we found that the training and testing scores were 100%. 
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion" id="accordionExample">
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="headingTwo">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                        <h4>Naive Bayes</h4>
+                                    </button>
+                                </h2>
+                                <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                                    <div class="accordion-body">
+                                        <div class="card rounded">    
+                                            <p class="fst-normal">
+                                                After performing The training and testing sets were both 100% or close to it. Based on this alone we were unsure if our model was being over trained. 
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion" id="accordionExample">
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="headingThree">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                            <h4> Decision Tree</h4>
+                                        </button>
+                                    </h2>
+                                    <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                                        <div class="accordion-body">
+                                            <div class="card rounded">   
+                                                <p class="fst-normal">
                         
-                    </p>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="accordion" id="accordionExample">
+                                    <div class="accordion-item">
+                                        <h2 class="accordion-header" id="headingFour">
+                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                                                <h4>SVM</h4>
+                                            </button>
+                                        </h2>
+                                        <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionExample">
+                                            <div class="accordion-body">
+                                                <div class="card rounded">      
+                                                    <p class="fst-normal">
+                                                    
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                 <div class="accordion" id="accordionExample">
+                                    <div class="accordion-item">
+                                        <h2 class="accordion-header" id="headingFive">
+                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                                                <h4>Random Forest</h4>
+                                               </button>
+                                         </h2>
+                                        <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#accordionExample">
+                                            <div class="accordion-body">
+                                                <div class="card rounded">
+                                                    <p class="fst-normal">
+                                                        The first round of testing after scaling the dataset and training the model resulted in 100% accuracy with both the training and testing data.  
+                                                        After noting that all of the other models were giving the same results, we modified the values for the base levels (maximum number of levels
+                                                        we would allow the model to go to) and the number of estimators (branches). This analysis allowed us to evaluate if our model was being overfit; 
+                                                        if our data was not lending itself to classification; or give us confidence that our model was really 100% accurate.
+                                                    </p>
+                                                    <table>
+                                                        <tr> 
+                                                            <th>Base Level</th>
+                                                            <th>Estimators</th>
+                                                            <th>Training Accuracy</th>
+                                                            <th>Testing Accuracy</th>
+                                                        </tr>
+                                                        <tr> 
+                                                            <td>5</td>
+                                                                <td>400</td>
+                                                                <td>Training Accuracy</td>
+                                                                <td>Testing Accuracy</td>
+                                                            </tr>
+                                                            <tr> 
+                                                                <td>5</td>
+                                                                <td>300</td>
+                                                                <td>Training Accuracy</td>
+                                                                <td>Testing Accuracy</td>
+                                                            </tr>
+                                                            <tr> 
+                                                                <td>4</td>
+                                                                <td>300</td>
+                                                                <td>Training Accuracy</td>
+                                                                <td>Testing Accuracy</td>
+                                                            </tr>
+                                                            <tr> 
+                                                                <td>3</td>
+                                                                <td>300</td>
+                                                                <td>Training Accuracy</td>
+                                                                <td>Testing Accuracy</td>
+                                                            </tr>
+                                                            <tr> 
+                                                                <td>5</th>
+                                                                <td>300</td>
+                                                                <td>Training Accuracy</td>
+                                                                <td>Testing Accuracy</td>
+                                                            </tr>
+                                                        </table>
+                                                        <br>
+                                                        <p class="fst-normal">
 
-                    <h4>SVM</h4>
-                    <p class="fst-normal">
-                    
-                    </p>
-                    <h4>Random Forest</h4>
-                    <p class="fst-normal">
-                        
-                    </p>
-                    
-
-                </div>
+                                                            As shown in the table, we were able to see that with a lower number of levels to our tree and branches in the forest; we saw
+                                                            a lower accuracy rate.  Additionally, the testing and training accuracy remained close in all cases.  We interpret this as proving
+                                                            that our data was highly suited to training a classification model for the 41 specific diseases and 131 symptoms it contained.
+                                                            <br><br>
+                                                            This gave us the confidence in our data and the Random Forest Classification model to move foward and select the Random Forest Classsifier (Base = 5, Estimators = 300) for our predictions.
+                                                        </p>
+                                                        <br>
+                                                        <h5>Branch of Our Random Forest Classification Model</h5>
+                                                        <img title="Branch of Random Forest" class="img-fluid mx-auto rounded" alt="randomForest_branch" src="https://github.com/Mreisinger1/diagnosis-prediction-tool/blob/main/Classification%20Models/RF/RandomForest_Visualization1.png?raw=true">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
             </div>
         </div>
 
