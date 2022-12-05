@@ -102,6 +102,7 @@ def Model_Disease_Predictor():
 def About_Developers():
     return render_template("about_developers.html")
 
+
 # go to about the data
 @app.route("/about_data/")
 def About_Data():
