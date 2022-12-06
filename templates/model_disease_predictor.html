@@ -104,8 +104,48 @@
                                             <br><br>
                                             <img title="KNN testing and training scores" class="img-fluid mx-auto rounded" alt="knn1" src="https://github.com/Mreisinger1/diagnosis-prediction-tool/blob/main/Classification%20Models/KNN/knn1.png?raw=true">
                                             <br><br>  
-                                            
-                                            We calculated the F1 score to try to identify false positives or negatives to see if the 100% accuracy result was a result of overtraining.
+                                            <table>
+                                                <tr> 
+                                                    <th>K Value</th>
+                                                    <th>Training Score</th>
+                                                    <th>Testing Score</th>
+                                                </tr>
+                                                <tr> 
+                                                    <td>1</td>
+                                                    <td>100%</td>
+                                                    <td>100%</td>
+                                                </tr>
+                                                <tr> 
+                                                    <td>3</td>
+                                                    <td>100%</td>
+                                                    <td>100%</td>
+                                                </tr>
+                                                <tr> 
+                                                    <td>5</td>
+                                                    <td>100%</td>
+                                                    <td>100%</td>
+                                                </tr>
+                                                <tr> 
+                                                    <td>7</td>
+                                                    <td>100%</td>
+                                                    <td>100%</td>
+                                                </tr>
+                                                <tr> 
+                                                    <td>9</td>
+                                                    <td>100%</td>
+                                                    <td>100%</td>
+                                                </tr>
+                                                <tr> 
+                                                    <td>11</td>
+                                                    <td>100%</td>
+                                                    <td>100%</td>
+                                                </tr>
+                                            </table>
+
+                                            <br><br>
+                                            We also calculated the F1 score to try to identify false positives or negatives to see if the 
+                                            100% accuracy result was a result of overtraining.
+                                            <br><br>
                                             <img title="KNN testing and training scores" class="img-fluid mx-auto rounded" alt="knn1" src="https://github.com/Mreisinger1/diagnosis-prediction-tool/blob/main/Classification%20Models/KNN/knn2.png?raw=true">   
                                             <br><br>
                                             After the F1 score was calculated we decided that the 100% accuracy of our model could potentially be from over training and determined that we should try other models to confirm this. 
@@ -155,10 +195,14 @@
                                             <div class="card rounded">   
                                                 <p class="fst-normal">
                                                 Decision Trees can handle non linear datasets very well and include branches that represent decision-making steps that can lead to a favorable result.
+                                                Being that we had such a large dataset we found that small changes in the data can cause a large change in the structure of the decision tree causing 
+                                                us to decide to continue to look for another classification model that fit our data better.
 
                                                 <img title="Decisiontree" class="img-fluid mx-auto rounded" alt="decisiontree" src="https://github.com/Mreisinger1/diagnosis-prediction-tool/blob/main/Classification%20Models/Decision Tree/decisiontree.png?raw=true">
                                             
+                                                
 
+                                        
 
                                                 </p>
                                             </div>
