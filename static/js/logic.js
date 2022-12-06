@@ -16,7 +16,24 @@ function init()
         y: ["1", "2", "3"],
         name: "Most Likely Conditions",
         type: "bar",
-        orientation: "h"
+        orientation: "h",
+        marker: {
+            color: 'rgb(158,202,225)',
+            opacity: 0.6,
+            line: {
+              color: 'rgb(8,48,107)',
+              width: 1.5,
+
+
+        scales: {
+                    x: {
+                        grid: {
+                          offset: true
+                        }
+                    }
+                }
+            }
+        }
     };
 
     // store the plot's data object in a trace
@@ -31,8 +48,10 @@ function init()
         yaxis: {
             automargin: true,
             title: "Conditions"
-        }
+        },
+       
     };
+
 
     // create the Plotly bar plot
     Plotly.newPlot("plot", bar_traceData, bar_layout);
