@@ -148,7 +148,8 @@
                                             <br><br>
                                             <img title="KNN testing and training scores" class="img-fluid mx-auto rounded" alt="knn1" src="https://github.com/Mreisinger1/diagnosis-prediction-tool/blob/main/Classification%20Models/KNN/knn2.png?raw=true">   
                                             <br><br>
-                                            After the F1 score was calculated we decided that the 100% accuracy of our model could potentially be from over training and determined that we should try other models to confirm this. 
+                                            On a scale from 0-1, 1 is the "perfect" F1 score. We had a range of 0.993-1.0 for all of our F-1 scores. To try and support this result we continued 
+                                            on with another model. 
                                         
                                         </p>
                                     </div>
@@ -173,9 +174,10 @@
 
                                                 <br><br>
 
-                                                After performing The training and testing sets were both 100% or close to it. Based on this alone we were unsure if our model was being over trained.
+                                                Our accuracy of this model was also 100%. We decided to try another model to test our accuracy. 
+
                                                 
-                                                <img title="Bayes" class="img-fluid mx-auto rounded" alt="NB" src="https://github.com/Mreisinger1/diagnosis-prediction-tool/blob/main/Classification%20Models/Naive Bayes/nb1.png?raw=true">
+                            
                                             
                                             
                                             </p>
@@ -195,8 +197,22 @@
                                             <div class="card rounded">   
                                                 <p class="fst-normal">
                                                 Decision Trees can handle non linear datasets very well and include branches that represent decision-making steps that can lead to a favorable result.
-                                                Being that we had such a large dataset we found that small changes in the data can cause a large change in the structure of the decision tree causing 
-                                                us to decide to continue to look for another classification model that fit our data better.
+                                                Being that we had such a large dataset we found that small changes in the data can cause a large change in the structure of the decision tree. 
+
+                                                <br><br>
+                                                A decision tree is made up of three types of nodes:
+
+                                                <br><br>
+
+                                                Decision Nodes: These type of node have two or more branches
+                                                <br><br>
+                                                Leaf Nodes: The lowest nodes which represents decision
+                                                <br><br>
+                                                Root Node: This is also a decision node but at the topmost level
+
+                                                <br><br> 
+
+                                                Because our dataset is so large, our decision tree includes mutiple root nodes as shown below: 
 
                                                 <img title="Decisiontree" class="img-fluid mx-auto rounded" alt="decisiontree" src="https://github.com/Mreisinger1/diagnosis-prediction-tool/blob/main/Classification%20Models/Decision Tree/decisiontree.png?raw=true">
                                             
