@@ -39,7 +39,7 @@ The 4 data files were cleaned up and combined to output 2 csv files.
 
 The random forest classification model is a collection of decision trees that are created using a randomly selected subset of the features and then averaged together to create the model.  Because it workes with a subset of the features at a time it is faster to train that the decision tree model.
 
-In our random forest classification, the first round of testing after scaling the dataset and training the model resulted in 100% accuracy with both the training and testing data. After noting that all of the other models we tried (KNN, Decision Tree, Naive Bayes, SVM) were giving the same results, we modified the values for the max depth (maximum number of levels we would allow the model to go to) and the number of estimators (branches). This analysis allowed us to evaluate if our model was being overfit; if our data was not lending itself to classification; or give us confidence that our model was really 100% accurate.
+In our random forest classification, the first round of testing after scaling the dataset and training the model resulted in 100% accuracy with both the training and testing data. After noting that all of the other models we tried (KNN, Decision Tree, Naive Bayes, SVM) were giving the same results, we modified the values for the max depth (maximum number of levels/branches we would allow the model to go to) and the number of estimators (trees). This analysis allowed us to evaluate if our model was being overfit; if our data was not lending itself to classification; or give us confidence that our model was really 100% accurate.
 
 <table>
     <tr> 
@@ -91,12 +91,12 @@ In our random forest classification, the first round of testing after scaling th
         <td>96.34%</td>
     </tr>
 </table>
-As shown in the table, we were able to see that with a lower number of levels to our tree and branches in the forest; we saw a lower accuracy rate.  Additionally, the testing and training accuracy remained close in all cases.  We interpret this as proving that our data was highly suited to training a classification model for the 41 specific diseases and 131 symptoms it contained.
+As shown in the table, we were able to see that with a lower number of branches and trees in the forest; we saw a lower accuracy rate.  Additionally, the testing and training accuracy remained close in all cases.  We interpret this as proving that our data was highly suited to training a classification model for the 41 specific diseases and 131 symptoms it contained.
 <br><br>
 This gave us the confidence in our data and the Random Forest Classification model to move foward and select the Random Forest Classsifier (Max Depth = 5, Estimators = 300) for our predictions.
 <br><br>
 
-#### Branch of Our Random Forest Classification Model
+#### Our Random Forest Classification Model - One Tree
 ![alt text](/Classification%20Models/RF/RandomForest_Visualization2.png)
 
 
