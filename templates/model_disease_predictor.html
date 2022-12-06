@@ -243,11 +243,11 @@
                                     <div class="card rounded">      
                                         <p class="fst-normal">
                                             Support vector machine (SVM) classifies data by defining a hyperplane decision boundary between classifications.
-                                            It finds the best boundary placing the hyperplane at the furthers distance from the closest datapoints for each
+                                            It finds the best boundary placing the hyperplane at the furthest distance from the closest datapoints between each
                                             class.
                                         </p>
                                         <p>
-                                            For multiclass SVM classification, there are two decision function shapes (One-vs-rest and One-vs-One).
+                                            For multiclass SVM classification, there are two decision function shapes (one-vs-rest and one-vs-one).
                                             In one-vs-rest (default for scikit-learn), each class is distiguished from the rest of the datapoints one
                                             at a time.  In one-vs-one, the data is broken down into multiple binary classifications.
                                         </p>
@@ -333,8 +333,7 @@
                                         </p>
                                         <p>
                                             In our random forest classification, the first round of testing after scaling the dataset and training the model resulted in 100% accuracy with both the training and testing data.  
-                                            After noting that all of the other models were giving the same results, we modified the values for the max depth (maximum number of levels
-                                            we would allow the model to go to) and the number of estimators (branches). This analysis allowed us to evaluate if our model was being overfit; 
+                                            We modified the values for the max depth (maximum number of levels/branches we would allow the model to go to) and the number of estimators (trees). This analysis allowed us to evaluate if our model was being overfit; 
                                             if our data was not lending itself to classification; or give us confidence that our model was really 100% accurate.
                                         </p>
                                         <table>
@@ -389,7 +388,7 @@
                                         </table>
                                         <br>
                                         <p class="fst-normal">
-                                            As shown in the table, we were able to see that with a lower number of levels to our tree and branches in the forest; we saw
+                                            As shown in the table, we were able to see that with a lower number of branches and trees in the forest; we saw
                                             a lower accuracy rate.  Additionally, the testing and training accuracy remained close in all cases.  We interpret this as proving
                                             that our data was highly suited to training a classification model for the 41 specific diseases and 131 symptoms it contained.
                                         </p>
@@ -397,7 +396,7 @@
                                             This gave us the confidence in our data and the Random Forest Classification model to move foward and select the Random Forest Classsifier (Max Depth = 5, Estimators = 300) for our predictions.
                                         </p>
                                         <br>
-                                        <h5>Branch of Our Random Forest Classification Model</h5>
+                                        <h5>Random Forest Classification Model - One Tree</h5>
                                         <img title="Branch of Random Forest" class="img-fluid mx-auto rounded" alt="randomForest_branch" src="https://github.com/Mreisinger1/diagnosis-prediction-tool/blob/main/Classification%20Models/RF/RandomForest_Visualization2.png?raw=true">
                                     </div>
                                 </div>
