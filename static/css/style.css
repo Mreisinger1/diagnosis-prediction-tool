@@ -1,3 +1,8 @@
 #model_option {
     text-decoration: none;
 }
+
+#dev_picture {
+    max-width: 200px;
+    height: auto;
+}
