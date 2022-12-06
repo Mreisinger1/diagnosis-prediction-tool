@@ -50,7 +50,7 @@ def get_prediction_data(checked_str):
             features.append(int(row["weight"]))
         else:
             features.append(0)
-    print(features)
+    
     # convert integer list into scikit-learn friendly list
     final_features = [np.array(features)]
     

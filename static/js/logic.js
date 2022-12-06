@@ -16,7 +16,15 @@ function init()
         y: ["1", "2", "3"],
         name: "Most Likely Conditions",
         type: "bar",
-        orientation: "h"
+        orientation: "h",
+        marker: {
+            color: "rgba(58, 200, 225, 0.5)",
+            line : {
+                color: "rgb(8, 48, 107)",
+                width: 1.5
+            }
+        },
+        hoverinfo: "none"
     };
 
     // store the plot's data object in a trace
@@ -25,11 +33,25 @@ function init()
     // define the plot's layout
     let bar_layout = {
         autosize: true,
+        dragmode: "false",
+        plot_bgcolor: "lightgray",
+        margin: {
+            l: 200,
+            t: 50,
+            r: 200,
+            b: 50
+        },
         xaxis: {
-            title: "Probability"
+            linecolor: "black",
+            linewidth: 2,
+            mirror: true,
+            title: "Probability",
+            tickformat: ",.2%"
         },
         yaxis: {
-            automargin: true,
+            linecolor: "black",
+            linewidth: 2,
+            mirror: true,
             title: "Conditions"
         }
     };
@@ -197,8 +219,12 @@ function Diagnose()
     {
         d3.json(`get_prediction/${checked_str}/`).then(function (data)
         {
-            x = data.probabilities;
-            y = data.conditions;
+            let unscaled = data.probabilities;
+            let unscaled_sum = unscaled.reduce((a, b) => { return a + b; });
+            let scaled = unscaled.map(x => x / unscaled_sum);
+
+            let x = scaled;
+            let y = data.conditions;
 
             Plotly.restyle("plot", "x", [x]);
             Plotly.restyle("plot", "y", [y]);
