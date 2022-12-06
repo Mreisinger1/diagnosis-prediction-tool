@@ -74,10 +74,16 @@
                 <div class="col-md-12">
                    
                     <!-- title -->
-                    <h4>Classification Models</h4>
+                    <h4>Approach</h4>
                     <p class="fst-normal">
-                        We evaluated 5 different types of classification models before we chose the model to be used for the predictor.
+                        To create our diagnosis prediction tool, we took the approach of evaluating 5 different types of classification models 
+                        in order to select the one that performed with the most accuracy.  We had some interesting results in that
+                        almost all of the models gave us very high accuracy.
+                        <br><br>
+                        In the end we selected the Random Forest model because it gave us the most confidence due to our ability to change
+                        settings and see fluctuation in the accuracy based on our changes.
                     </p>
+                    <h4>Classification Models</h4>
                     <div class="accordion" id="accordionExample">
                         <div class="accordion-item">
                             <h2 class="accordion-header" id="headingOne">
@@ -147,10 +153,10 @@
                                                         Addtionally, there are four different kernal functions.
                                                     </p>
                                                     <ol>
-                                                        <li>Linear <br> <img class="img-fluid mx-auto rounded" alt="Linear" src=""> </li>
-                                                        <li>Polynomial <br> <img class="img-fluid mx-auto rounded" alt="Linear" src=""></li>
-                                                        <li>Radial Basis Function (RBF) <br> <img class="img-fluid mx-auto rounded" alt="Linear" src=""></li>
-                                                        <li>Sigmoid <br> <img class="img-fluid mx-auto rounded" alt="Linear" src=""></li>
+                                                        <li>1. Linear <br> <img class="img-fluid mx-auto rounded" alt="Linear" src="https://github.com/Mreisinger1/diagnosis-prediction-tool/blob/main/Classification%20Models/SVM/Linear.png?raw=true"> </li>
+                                                        <li>2. Polynomial <br> <img class="img-fluid mx-auto rounded" alt="Poly" src="https://github.com/Mreisinger1/diagnosis-prediction-tool/blob/main/Classification%20Models/SVM/Polynomial.png?raw=true"></li>
+                                                        <li>3. Radial Basis Function (RBF) <br> <img class="img-fluid mx-auto rounded" alt="RBF" src="https://github.com/Mreisinger1/diagnosis-prediction-tool/blob/main/Classification%20Models/SVM/RBF.png?raw=true"></li>
+                                                        <li>4. Sigmoid <br> <img class="img-fluid mx-auto rounded" alt="Sigmoid" src="https://github.com/Mreisinger1/diagnosis-prediction-tool/blob/main/Classification%20Models/SVM/Sigmoid.png?raw=true"></li>
                                                     </ol>
 
                                                     <table>
@@ -212,7 +218,7 @@
                                     <div class="accordion-item">
                                         <h2 class="accordion-header" id="headingFive">
                                             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
-                                                <h4>Random Forest</h4>
+                                                <h4>Random Forest - Selected Prediction Model</h4>
                                                </button>
                                          </h2>
                                         <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#accordionExample">
@@ -241,7 +247,7 @@
                                                                 <td>5</td>
                                                                 <td>400</td>
                                                                 <td>100%</td>
-                                                                <td>T100%</td>
+                                                                <td>100%</td>
                                                             </tr>
                                                             <tr> 
                                                                 <td>5</th>
@@ -281,7 +287,7 @@
                                                             a lower accuracy rate.  Additionally, the testing and training accuracy remained close in all cases.  We interpret this as proving
                                                             that our data was highly suited to training a classification model for the 41 specific diseases and 131 symptoms it contained.
                                                             <br><br>
-                                                            This gave us the confidence in our data and the Random Forest Classification model to move foward and select the Random Forest Classsifier (Base = 5, Estimators = 300) for our predictions.
+                                                            This gave us the confidence in our data and the Random Forest Classification model to move foward and select the Random Forest Classsifier (Max Depth = 5, Estimators = 300) for our predictions.
                                                         </p>
                                                         <br>
                                                         <h5>Branch of Our Random Forest Classification Model</h5>
