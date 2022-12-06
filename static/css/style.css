@@ -6,3 +6,21 @@
     max-width: 200px;
     height: auto;
 }
+
+#AcredLink {
+    color: black
+}
+
+table, th, td {
+  
+    /* Visual */
+    border-collapse: collapse;
+    border-spacing: 0;
+    border: 1px solid black;
+    text-align: center;
+  }
+
+th {
+    font-weight: bold;
+    background-color:  rgb(178, 174, 174);
+}
