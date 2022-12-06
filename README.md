@@ -1,5 +1,9 @@
 # Diagnosis Prediction Tool
 
+## Link to Heroku app where the project is hosted.
+
+http://not-web-md.herokuapp.com/
+
 ### Produced by:
 * Akhil Bandi
 * Scott Neubauer
@@ -24,6 +28,16 @@ The 4 data files were cleaned up and combined to output 2 csv files.
 
 ## Data Access Layer
 A Flask server is used to access the data and serve it to the website.  There are X routes used to gather data for the various sites/visualizations on the site.
+
+## Steps to Diagnose the Symptom(s)
+
+* Click the not-web-md link on the top to go to the website.
+* Click the Diagnosis dropdown ans select "Disease From Symptoms" or select "Diagnosis Engine" on the Home Page to nagivate to Diagnosis Page.
+* Select the Symptom(s) from the "Symptom Selection" section and click Diagnose button on the top to see the "Diasese" associated with the symptom(s).
+* Expand the "Precautions and Possible Treatments" Section under Results to see tratetments for the Disease.
+* Expand the "Other Possiblilities" Section under Results to see what are the other possible Diseases related to Symptom(s).
+* Click "Reset" and Repeat the above Steps to Diagnose other Symptoms(s)
+
 
 ## Model for predicting diagnosis
 There were 4 different supervised learning models created in an effort to identify the best option for our predictive classification.
