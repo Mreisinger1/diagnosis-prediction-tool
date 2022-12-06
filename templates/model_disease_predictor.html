@@ -84,14 +84,14 @@
                         settings and see fluctuation in the accuracy based on our changes.
                     </p>
                     <h4>Classification Models</h4>
-                    <div class="accordion" id="accordionExample">
+                    <div class="accordion" id="model_development_accordion">
                         <div class="accordion-item">
-                            <h2 class="accordion-header" id="headingOne">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-                                    <h4>KNN: Logistic Regression Friendly Neighbor </h4>
+                            <h2 class="accordion-header" id="heading_knn">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse_knn" aria-expanded="false" aria-controls="collapse_knn">
+                                    Logistic Regression Friendly Neighbor (KNN)
                                 </button>
                             </h2>
-                            <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                            <div id="collapse_knn" class="accordion-collapse collapse" aria-labelledby="heading_knn" data-bs-parent="#model_development_accordion">
                                 <div class="accordion-body">
                                     <div class="card rounded">
                                         <p class="fst-normal">
@@ -156,248 +156,228 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="accordion" id="accordionExample">
-                            <div class="accordion-item">
-                                <h2 class="accordion-header" id="headingTwo">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                        <h4>Naive Bayes</h4>
-                                    </button>
-                                </h2>
-                                <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
-                                    <div class="accordion-body">
-                                        <div class="card rounded">    
-                                            <p class="fst-normal">
-                                                 
-                                                Naive Bayes is a classification model that is based on applying Naive Bayes theorem with the “naive” 
-                                                assumption of conditional independence between every pair of features given the value of the class main variable. 
-                                                Bayes theorem states the following relationship:
-
-                                                <br><br>
-
-                                                Our accuracy of this model was also 100%. We decided to try another model to test our accuracy. 
-
-                                                
-                            
-                                            
-                                            
-                                            </p>
-                                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="heading_nb">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse_nb" aria-expanded="false" aria-controls="collapse_nb">
+                                    Naive Bayes
+                                </button>
+                            </h2>
+                            <div id="collapse_nb" class="accordion-collapse collapse" aria-labelledby="heading_nb" data-bs-parent="#model_development_accordion">
+                                <div class="accordion-body">
+                                    <div class="card rounded">    
+                                        <p class="fst-normal">
+                                            Naive Bayes is a classification model that is based on applying Naive Bayes theorem with the “naive” 
+                                            assumption of conditional independence between every pair of features given the value of the class main variable. 
+                                            Bayes theorem states the following relationship:
+                                            <br>
+                                            <br>
+                                            Our accuracy of this model was also 100%. We decided to try another model to test our accuracy.
+                                        </p>
                                     </div>
                                 </div>
                             </div>
-                            <div class="accordion" id="accordionExample">
-                                <div class="accordion-item">
-                                    <h2 class="accordion-header" id="headingThree">
-                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                            <h4> Decision Tree</h4>
-                                        </button>
-                                    </h2>
-                                    <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
-                                        <div class="accordion-body">
-                                            <div class="card rounded">   
-                                                <p class="fst-normal">
-                                                Decision Trees can handle non linear datasets very well and include branches that represent decision-making steps that can lead to a favorable result.
-                                                Being that we had such a large dataset we found that small changes in the data can cause a large change in the structure of the decision tree. 
-
-                                                <br><br>
-                                                A decision tree is made up of three types of nodes:
-
-                                                <br><br>
-
-                                                Decision Nodes: These type of node have two or more branches
-                                                <br><br>
-                                                Leaf Nodes: The lowest nodes which represents decision
-                                                <br><br>
-                                                Root Node: This is also a decision node but at the topmost level
-
-                                                <br><br> 
-
-                                                Because our dataset is so large, our decision tree includes mutiple root nodes as shown below: 
-
-                                                <img title="Decisiontree" class="img-fluid mx-auto rounded" alt="decisiontree" src="https://github.com/Mreisinger1/diagnosis-prediction-tool/blob/main/Classification%20Models/Decision Tree/decisiontree.png?raw=true">
-                                            
-                                                
-
-                                        
-
-                                                </p>
-                                            </div>
-                                        </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="heading_dt">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse_dt" aria-expanded="false" aria-controls="collapse_dt">
+                                    Decision Tree
+                                </button>
+                            </h2>
+                            <div id="collapse_dt" class="accordion-collapse collapse" aria-labelledby="heading_dt" data-bs-parent="#model_development_accordion">
+                                <div class="accordion-body">
+                                    <div class="card rounded">   
+                                        <p class="fst-normal">
+                                            Decision Trees can handle non linear datasets very well and include branches that represent decision-making steps that can lead to a favorable result.
+                                            Being that we had such a large dataset we found that small changes in the data can cause a large change in the structure of the decision tree. 
+                                            <br><br>
+                                            A decision tree is made up of three types of nodes:
+                                            <br><br>
+                                            Decision Nodes: These type of node have two or more branches
+                                            <br><br>
+                                            Leaf Nodes: The lowest nodes which represents decision
+                                            <br><br>
+                                            Root Node: This is also a decision node but at the topmost level
+                                            <br><br>
+                                            Because our dataset is so large, our decision tree includes mutiple root nodes as shown below: 
+                                            <img title="Decisiontree" class="img-fluid mx-auto rounded" alt="decisiontree" src="https://github.com/Mreisinger1/diagnosis-prediction-tool/blob/main/Classification%20Models/Decision Tree/decisiontree.png?raw=true">
+                                        </p>
                                     </div>
                                 </div>
-                                <div class="accordion" id="accordionExample">
-                                    <div class="accordion-item">
-                                        <h2 class="accordion-header" id="headingFour">
-                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-                                                <h4>Support Vector Machine (SVM)</h4>
-                                            </button>
-                                        </h2>
-                                        <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionExample">
-                                            <div class="accordion-body">
-                                                <div class="card rounded">      
-                                                    <p class="fst-normal">
-                                                        Support vector machine (SVM) classifies data by defining a hyperplane decision boundary between classifications.
-                                                        It finds the best boundary placing the hyperplane at the furthers distance from the closest datapoints for each
-                                                        class.
-                                                        </p><p>
-                                                        For multiclass SVM classification, there are two decision function shapes (One-vs-rest and One-vs-One).
-                                                        In one-vs-rest (default for scikit-learn), each class is distiguished from the rest of the datapoints one
-                                                        at a time.  In one-vs-one, the data is broken down into multiple binary classifications.
-                                                        </p><p>
-                                                        Addtionally, there are different kernal functions used to define the decision boundary (hyperplane).  
-                                                        We used the four most popular kernal functions for our analysis.
-                                                    </p>
-                                                    <ol>
-                                                        <li>1. Linear <br> <img class="img-fluid mx-auto rounded" alt="Linear" src="https://github.com/Mreisinger1/diagnosis-prediction-tool/blob/main/Classification%20Models/SVM/Linear.png?raw=true"> </li>
-                                                        <li>2. Polynomial <br> <img class="img-fluid mx-auto rounded" alt="Poly" src="https://github.com/Mreisinger1/diagnosis-prediction-tool/blob/main/Classification%20Models/SVM/Polynomial.png?raw=true"></li>
-                                                        <li>3. Radial Basis Function (RBF) <br> <img class="img-fluid mx-auto rounded" alt="RBF" src="https://github.com/Mreisinger1/diagnosis-prediction-tool/blob/main/Classification%20Models/SVM/RBF.png?raw=true"></li>
-                                                        <li>4. Sigmoid <br> <img class="img-fluid mx-auto rounded" alt="Sigmoid" src="https://github.com/Mreisinger1/diagnosis-prediction-tool/blob/main/Classification%20Models/SVM/Sigmoid.png?raw=true"></li>
-                                                    </ol>
-
-                                                    <table>
-                                                        <tr> 
-                                                            <th>Kernal</th>
-                                                            <th>Decision Shape</th>
-                                                            <th>Accuracy</th>
-                                                        </tr>
-                                                        <tr> 
-                                                            <td>Linear</td>
-                                                            <td>OvO</td>
-                                                            <td>100%</td>
-                                                        </tr>
-                                                        <tr> 
-                                                            <td>Linear</td>
-                                                            <td>OvR</td>
-                                                            <td>100%</td>
-                                                        </tr>
-                                                        <tr> 
-                                                            <td>Polynomial</td>
-                                                            <td>OvO</td>
-                                                            <td>96.7%</td>
-                                                        </tr>
-                                                        <tr> 
-                                                            <td>Polynomial</td>
-                                                            <td>OvR</td>
-                                                            <td>96.7%</td>
-                                                        </tr>
-                                                        <tr> 
-                                                            <td>RBF</td>
-                                                            <td>OvO</td>
-                                                            <td>100%</td>
-                                                        </tr>
-                                                        <tr> 
-                                                            <td>RBF</td>
-                                                            <td>OvR</td>
-                                                            <td>100%</td>
-                                                        </tr>
-                                                        <tr> 
-                                                            <td>Sigmoid</td>
-                                                            <td>OvO</td>
-                                                            <td>100%</td>
-                                                        </tr>
-                                                        <tr> 
-                                                            <td>Sigmoid</td>
-                                                            <td>OvR</td>
-                                                            <td>100%</td>
-                                                        </tr>
-                                                    </table>
-                                                    <br>
-                                                    <p class="fst-normal">
-                                                        Being that the results for nearly all of the kernals and decision function combinations was 100%, we were 
-                                                        concerned with overfitting with this classification model.
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="heading_svm">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse_svm" aria-expanded="false" aria-controls="collapse_svm">
+                                    Support Vector Machine (SVM)
+                                </button>
+                            </h2>
+                            <div id="collapse_svm" class="accordion-collapse collapse" aria-labelledby="heading_svm" data-bs-parent="#model_development_accordion">
+                                <div class="accordion-body">
+                                    <div class="card rounded">      
+                                        <p class="fst-normal">
+                                            Support vector machine (SVM) classifies data by defining a hyperplane decision boundary between classifications.
+                                            It finds the best boundary placing the hyperplane at the furthers distance from the closest datapoints for each
+                                            class.
+                                        </p>
+                                        <p>
+                                            For multiclass SVM classification, there are two decision function shapes (One-vs-rest and One-vs-One).
+                                            In one-vs-rest (default for scikit-learn), each class is distiguished from the rest of the datapoints one
+                                            at a time.  In one-vs-one, the data is broken down into multiple binary classifications.
+                                        </p>
+                                        <p>
+                                            Addtionally, there are different kernal functions used to define the decision boundary (hyperplane).  
+                                            We used the four most popular kernal functions for our analysis.
+                                        </p>
+                                        <ol>
+                                            <li>1. Linear <br> <img class="img-fluid mx-auto rounded" alt="Linear" src="https://github.com/Mreisinger1/diagnosis-prediction-tool/blob/main/Classification%20Models/SVM/Linear.png?raw=true"> </li>
+                                            <li>2. Polynomial <br> <img class="img-fluid mx-auto rounded" alt="Poly" src="https://github.com/Mreisinger1/diagnosis-prediction-tool/blob/main/Classification%20Models/SVM/Polynomial.png?raw=true"></li>
+                                            <li>3. Radial Basis Function (RBF) <br> <img class="img-fluid mx-auto rounded" alt="RBF" src="https://github.com/Mreisinger1/diagnosis-prediction-tool/blob/main/Classification%20Models/SVM/RBF.png?raw=true"></li>
+                                            <li>4. Sigmoid <br> <img class="img-fluid mx-auto rounded" alt="Sigmoid" src="https://github.com/Mreisinger1/diagnosis-prediction-tool/blob/main/Classification%20Models/SVM/Sigmoid.png?raw=true"></li>
+                                        </ol>
+                                        <table>
+                                            <tr> 
+                                                <th>Kernal</th>
+                                                <th>Decision Shape</th>
+                                                <th>Accuracy</th>
+                                            </tr>
+                                            <tr> 
+                                                <td>Linear</td>
+                                                <td>OvO</td>
+                                                <td>100%</td>
+                                            </tr>
+                                            <tr> 
+                                                <td>Linear</td>
+                                                <td>OvR</td>
+                                                <td>100%</td>
+                                            </tr>
+                                            <tr> 
+                                                <td>Polynomial</td>
+                                                <td>OvO</td>
+                                                <td>96.7%</td>
+                                            </tr>
+                                            <tr> 
+                                                <td>Polynomial</td>
+                                                <td>OvR</td>
+                                                <td>96.7%</td>
+                                            </tr>
+                                            <tr> 
+                                                <td>RBF</td>
+                                                <td>OvO</td>
+                                                <td>100%</td>
+                                            </tr>
+                                            <tr> 
+                                                <td>RBF</td>
+                                                <td>OvR</td>
+                                                <td>100%</td>
+                                            </tr>
+                                            <tr> 
+                                                <td>Sigmoid</td>
+                                                <td>OvO</td>
+                                                <td>100%</td>
+                                            </tr>
+                                            <tr> 
+                                                <td>Sigmoid</td>
+                                                <td>OvR</td>
+                                                <td>100%</td>
+                                            </tr>
+                                        </table>
+                                        <br>
+                                        <p class="fst-normal">
+                                            Being that the results for nearly all of the kernals and decision function combinations was 100%, we were 
+                                            concerned with overfitting with this classification model.
+                                        </p>
                                     </div>
                                 </div>
-                                 <div class="accordion" id="accordionExample">
-                                    <div class="accordion-item">
-                                        <h2 class="accordion-header" id="headingFive">
-                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
-                                                <h4>Random Forest - Selected Prediction Model</h4>
-                                               </button>
-                                         </h2>
-                                        <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#accordionExample">
-                                            <div class="accordion-body">
-                                                <div class="card rounded">
-                                                    <p class="fst-normal">
-                                                        The random forest classification model is a collection of decision trees that are created using a randomly selected subset of the 
-                                                        features and then averaged together to create the model.  Because it workes with a subset of the features at a time it is faster to
-                                                        train that the decision tree model.
-                                                        </p><p>
-                                                        In our random forest classification, the first round of testing after scaling the dataset and training the model resulted in 100% accuracy with both the training and testing data.  
-                                                        After noting that all of the other models were giving the same results, we modified the values for the max depth (maximum number of levels
-                                                        we would allow the model to go to) and the number of estimators (branches). This analysis allowed us to evaluate if our model was being overfit; 
-                                                        if our data was not lending itself to classification; or give us confidence that our model was really 100% accurate.
-                                                    </p>
-                                                    <table>
-                                                        <tr> 
-                                                            <th>Max Depth</th>
-                                                            <th>Estimators</th>
-                                                            <th>Training Accuracy</th>
-                                                            <th>Testing Accuracy</th>
-                                                        </tr>
-                                                        <tr> 
-                                                            <td>5</td>
-                                                                <td>500</td>
-                                                                <td>100%</td>
-                                                                <td>100%</td>
-                                                        </tr>
-                                                            <tr> 
-                                                                <td>5</td>
-                                                                <td>400</td>
-                                                                <td>100%</td>
-                                                                <td>100%</td>
-                                                            </tr>
-                                                            <tr> 
-                                                                <td>5</th>
-                                                                <td>300</td>
-                                                                <td>100%</td>
-                                                                <td>100%</td>
-                                                            </tr>
-                                                            <tr> 
-                                                                <td>5</th>
-                                                                <td>200</td>
-                                                                <td>99.73%</td>
-                                                                <td>99.84%</td>
-                                                            </tr>
-                                                            <tr> 
-                                                                <td>4</td>
-                                                                <td>300</td>
-                                                                <td>99.76%</td>
-                                                                <td>99.76%</td>
-                                                            </tr>
-                                                            <tr> 
-                                                                <td>3</td>
-                                                                <td>100</td>
-                                                                <td>95.99%</td>
-                                                                <td>96.42%</td>
-                                                            </tr>
-                                                            <tr> 
-                                                                <td>2</td>
-                                                                <td>200</td>
-                                                                <td>96.18%</td>
-                                                                <td>96.34%</td>
-                                                            </tr>
-                                                        </table>
-                                                        <br>
-                                                        <p class="fst-normal">
-
-                                                            As shown in the table, we were able to see that with a lower number of levels to our tree and branches in the forest; we saw
-                                                            a lower accuracy rate.  Additionally, the testing and training accuracy remained close in all cases.  We interpret this as proving
-                                                            that our data was highly suited to training a classification model for the 41 specific diseases and 131 symptoms it contained.
-                                                        </p><p>
-                                                            This gave us the confidence in our data and the Random Forest Classification model to move foward and select the Random Forest Classsifier (Max Depth = 5, Estimators = 300) for our predictions.
-                                                        </p>
-                                                        <br>
-                                                        <h5>Branch of Our Random Forest Classification Model</h5>
-                                                        <img title="Branch of Random Forest" class="img-fluid mx-auto rounded" alt="randomForest_branch" src="https://github.com/Mreisinger1/diagnosis-prediction-tool/blob/main/Classification%20Models/RF/RandomForest_Visualization2.png?raw=true">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="heading_rf">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse_rf" aria-expanded="false" aria-controls="collapse_rf">
+                                    Random Forest - Selected Prediction Model
+                                </button>
+                            </h2>
+                            <div id="collapse_rf" class="accordion-collapse collapse" aria-labelledby="heading_rf" data-bs-parent="#model_development_accordion">
+                                <div class="accordion-body">
+                                    <div class="card rounded">
+                                        <p class="fst-normal">
+                                            The random forest classification model is a collection of decision trees that are created using a randomly selected subset of the 
+                                            features and then averaged together to create the model.  Because it workes with a subset of the features at a time it is faster to
+                                            train that the decision tree model.
+                                        </p>
+                                        <p>
+                                            In our random forest classification, the first round of testing after scaling the dataset and training the model resulted in 100% accuracy with both the training and testing data.  
+                                            After noting that all of the other models were giving the same results, we modified the values for the max depth (maximum number of levels
+                                            we would allow the model to go to) and the number of estimators (branches). This analysis allowed us to evaluate if our model was being overfit; 
+                                            if our data was not lending itself to classification; or give us confidence that our model was really 100% accurate.
+                                        </p>
+                                        <table>
+                                            <tr> 
+                                                <th>Max Depth</th>
+                                                <th>Estimators</th>
+                                                <th>Training Accuracy</th>
+                                                <th>Testing Accuracy</th>
+                                            </tr>
+                                            <tr> 
+                                                <td>5</td>
+                                                <td>500</td>
+                                                <td>100%</td>
+                                                <td>100%</td>
+                                            </tr>
+                                            <tr> 
+                                                <td>5</td>
+                                                <td>400</td>
+                                                <td>100%</td>
+                                                <td>100%</td>
+                                            </tr>
+                                            <tr> 
+                                                <td>5</th>
+                                                <td>300</td>
+                                                <td>100%</td>
+                                                <td>100%</td>
+                                            </tr>
+                                            <tr> 
+                                                <td>5</th>
+                                                <td>200</td>
+                                                <td>99.73%</td>
+                                                <td>99.84%</td>
+                                            </tr>
+                                            <tr> 
+                                                <td>4</td>
+                                                <td>300</td>
+                                                <td>99.76%</td>
+                                                <td>99.76%</td>
+                                            </tr>
+                                            <tr> 
+                                                <td>3</td>
+                                                <td>100</td>
+                                                <td>95.99%</td>
+                                                <td>96.42%</td>
+                                            </tr>
+                                            <tr> 
+                                                <td>2</td>
+                                                <td>200</td>
+                                                <td>96.18%</td>
+                                                <td>96.34%</td>
+                                            </tr>
+                                        </table>
+                                        <br>
+                                        <p class="fst-normal">
+                                            As shown in the table, we were able to see that with a lower number of levels to our tree and branches in the forest; we saw
+                                            a lower accuracy rate.  Additionally, the testing and training accuracy remained close in all cases.  We interpret this as proving
+                                            that our data was highly suited to training a classification model for the 41 specific diseases and 131 symptoms it contained.
+                                        </p>
+                                        <p>
+                                            This gave us the confidence in our data and the Random Forest Classification model to move foward and select the Random Forest Classsifier (Max Depth = 5, Estimators = 300) for our predictions.
+                                        </p>
+                                        <br>
+                                        <h5>Branch of Our Random Forest Classification Model</h5>
+                                        <img title="Branch of Random Forest" class="img-fluid mx-auto rounded" alt="randomForest_branch" src="https://github.com/Mreisinger1/diagnosis-prediction-tool/blob/main/Classification%20Models/RF/RandomForest_Visualization2.png?raw=true">
                                     </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 
