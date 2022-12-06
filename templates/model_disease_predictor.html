@@ -95,7 +95,21 @@
                                 <div class="accordion-body">
                                     <div class="card rounded">
                                         <p class="fst-normal">
-                                            After looping through a range of odd k values to calculate the score we found that the training and testing scores were 100%. 
+                                            KNN is a very easy classification model to implement. It is a "lazy learning algorithm" meaning the whole dataset doesn't need to be trained, 
+                                            it just uses the nearest neighbors to obtain results. After looping through a range of odd k values to calculate the score we found that the training and testing scores were 100%. 
+
+                                            We found that KNN doesn't work well with high dimensional data because with a large number of dimensions, the distance between points gets "weird", 
+                                            and the distance metrics don't hold up. 
+
+                                            <br><br>
+                                            <img title="KNN testing and training scores" class="img-fluid mx-auto rounded" alt="knn1" src="https://github.com/Mreisinger1/diagnosis-prediction-tool/blob/main/Classification%20Models/KNN/knn1.png?raw=true">
+                                            <br><br>  
+                                            
+                                            We calculated the F1 score to try to identify false positives or negatives to see if the 100% accuracy result was a result of overtraining.
+                                            <img title="KNN testing and training scores" class="img-fluid mx-auto rounded" alt="knn1" src="https://github.com/Mreisinger1/diagnosis-prediction-tool/blob/main/Classification%20Models/KNN/knn2.png?raw=true">   
+                                            <br><br>
+                                            After the F1 score was calculated we decided that the 100% accuracy of our model could potentially be from over training and determined that we should try other models to confirm this. 
+                                        
                                         </p>
                                     </div>
                                 </div>
@@ -112,7 +126,18 @@
                                     <div class="accordion-body">
                                         <div class="card rounded">    
                                             <p class="fst-normal">
-                                                After performing The training and testing sets were both 100% or close to it. Based on this alone we were unsure if our model was being over trained. 
+                                                 
+                                                Naive Bayes is a classification model that is based on applying Naive Bayes theorem with the “naive” 
+                                                assumption of conditional independence between every pair of features given the value of the class main variable. 
+                                                Bayes theorem states the following relationship:
+
+                                                <br><br>
+
+                                                After performing The training and testing sets were both 100% or close to it. Based on this alone we were unsure if our model was being over trained.
+                                                
+                                                <img title="Bayes" class="img-fluid mx-auto rounded" alt="NB" src="https://github.com/Mreisinger1/diagnosis-prediction-tool/blob/main/Classification%20Models/Naive Bayes/nb1.png?raw=true">
+                                            
+                                            
                                             </p>
                                         </div>
                                     </div>
@@ -129,7 +154,12 @@
                                         <div class="accordion-body">
                                             <div class="card rounded">   
                                                 <p class="fst-normal">
-                        
+                                                Decision Trees can handle non linear datasets very well and include branches that represent decision-making steps that can lead to a favorable result.
+
+                                                <img title="Decisiontree" class="img-fluid mx-auto rounded" alt="decisiontree" src="https://github.com/Mreisinger1/diagnosis-prediction-tool/blob/main/Classification%20Models/Decision Tree/decisiontree.png?raw=true">
+                                            
+
+
                                                 </p>
                                             </div>
                                         </div>
