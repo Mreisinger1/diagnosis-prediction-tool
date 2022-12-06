@@ -95,6 +95,7 @@ As shown in the table, we were able to see that with a lower number of levels to
 <br><br>
 This gave us the confidence in our data and the Random Forest Classification model to move foward and select the Random Forest Classsifier (Max Depth = 5, Estimators = 300) for our predictions.
 <br><br>
+
 #### Branch of Our Random Forest Classification Model
 ![alt text](/Classification%20Models/RF/RandomForest_Visualization2.png)
 
