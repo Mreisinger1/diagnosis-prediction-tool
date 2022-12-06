@@ -18,13 +18,20 @@ function init()
         type: "bar",
         orientation: "h",
         marker: {
-            color: "rgba(58, 200, 225, 0.5)",
-            line : {
-                color: "rgb(8, 48, 107)",
-                width: 1.5
+            color: 'rgb(158,202,225)',
+            opacity: 0.6,
+            line: {
+              color: 'rgb(8,48,107)',
+              width: 1.5,
+        scales: {
+                    x: {
+                        grid: {
+                          offset: true
+                        }
+                    }
+                }
             }
-        },
-        hoverinfo: "none"
+        }
     };
 
     // store the plot's data object in a trace
@@ -53,8 +60,10 @@ function init()
             linewidth: 2,
             mirror: true,
             title: "Conditions"
-        }
+        },
+       
     };
+
 
     // create the Plotly bar plot
     Plotly.newPlot("plot", bar_traceData, bar_layout);
