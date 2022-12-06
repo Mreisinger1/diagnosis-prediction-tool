@@ -133,14 +133,75 @@
                                     <div class="accordion-item">
                                         <h2 class="accordion-header" id="headingFour">
                                             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-                                                <h4>SVM</h4>
+                                                <h4>Support Vector Machine (SVM)</h4>
                                             </button>
                                         </h2>
                                         <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionExample">
                                             <div class="accordion-body">
                                                 <div class="card rounded">      
                                                     <p class="fst-normal">
-                                                    
+                                                        SVM in its simplest form is a binary classifcation model. For multiclass classification, there are two decision function
+                                                        shapes (One-vs-rest and One-vs-One).  In one-vs-rest (default for scikit-learn), each class is distiguished from the rest of 
+                                                        the datapoints one at a time.  In one-vs-one, the data is broken down into multiple binary classifications.
+
+                                                        Addtionally, there are four different kernal functions.
+                                                    </p>
+                                                    <ol>
+                                                        <li>Linear <br> <img class="img-fluid mx-auto rounded" alt="Linear" src=""> </li>
+                                                        <li>Polynomial <br> <img class="img-fluid mx-auto rounded" alt="Linear" src=""></li>
+                                                        <li>Radial Basis Function (RBF) <br> <img class="img-fluid mx-auto rounded" alt="Linear" src=""></li>
+                                                        <li>Sigmoid <br> <img class="img-fluid mx-auto rounded" alt="Linear" src=""></li>
+                                                    </ol>
+
+                                                    <table>
+                                                        <tr> 
+                                                            <th>Kernal</th>
+                                                            <th>Decision Shape</th>
+                                                            <th>Accuracy</th>
+                                                        </tr>
+                                                        <tr> 
+                                                            <td>Linear</td>
+                                                            <td>OvO</td>
+                                                            <td>100%</td>
+                                                        </tr>
+                                                        <tr> 
+                                                            <td>Linear</td>
+                                                            <td>OvR</td>
+                                                            <td>100%</td>
+                                                        </tr>
+                                                        <tr> 
+                                                            <td>Polynomial</td>
+                                                            <td>OvO</td>
+                                                            <td>100%</td>
+                                                        </tr>
+                                                        <tr> 
+                                                            <td>Polynomial</td>
+                                                            <td>OvR</td>
+                                                            <td>96.7%</td>
+                                                        </tr>
+                                                        <tr> 
+                                                            <td>RBF</td>
+                                                            <td>OvO</td>
+                                                            <td>96.7%</td>
+                                                        </tr>
+                                                        <tr> 
+                                                            <td>RBF</td>
+                                                            <td>OvR</td>
+                                                            <td>100%</td>
+                                                        </tr>
+                                                        <tr> 
+                                                            <td>Sigmoid</td>
+                                                            <td>OvO</td>
+                                                            <td>100%</td>
+                                                        </tr>
+                                                        <tr> 
+                                                            <td>Sigmoid</td>
+                                                            <td>OvR</td>
+                                                            <td>100%</td>
+                                                        </tr>
+                                                    </table>
+                                                    <p class="fst-normal">
+                                                        Being that the results for nearly all of the kernals and decision functions was 100%, we are not confident that there is not over fitting of the models.
                                                     </p>
                                                 </div>
                                             </div>
@@ -159,46 +220,58 @@
                                                 <div class="card rounded">
                                                     <p class="fst-normal">
                                                         The first round of testing after scaling the dataset and training the model resulted in 100% accuracy with both the training and testing data.  
-                                                        After noting that all of the other models were giving the same results, we modified the values for the base levels (maximum number of levels
+                                                        After noting that all of the other models were giving the same results, we modified the values for the max depth (maximum number of levels
                                                         we would allow the model to go to) and the number of estimators (branches). This analysis allowed us to evaluate if our model was being overfit; 
                                                         if our data was not lending itself to classification; or give us confidence that our model was really 100% accurate.
                                                     </p>
                                                     <table>
                                                         <tr> 
-                                                            <th>Base Level</th>
+                                                            <th>Max Depth</th>
                                                             <th>Estimators</th>
                                                             <th>Training Accuracy</th>
                                                             <th>Testing Accuracy</th>
                                                         </tr>
                                                         <tr> 
                                                             <td>5</td>
-                                                                <td>400</td>
-                                                                <td>Training Accuracy</td>
-                                                                <td>Testing Accuracy</td>
-                                                            </tr>
+                                                                <td>500</td>
+                                                                <td>100%</td>
+                                                                <td>100%</td>
+                                                        </tr>
                                                             <tr> 
                                                                 <td>5</td>
-                                                                <td>300</td>
-                                                                <td>Training Accuracy</td>
-                                                                <td>Testing Accuracy</td>
-                                                            </tr>
-                                                            <tr> 
-                                                                <td>4</td>
-                                                                <td>300</td>
-                                                                <td>Training Accuracy</td>
-                                                                <td>Testing Accuracy</td>
-                                                            </tr>
-                                                            <tr> 
-                                                                <td>3</td>
-                                                                <td>300</td>
-                                                                <td>Training Accuracy</td>
-                                                                <td>Testing Accuracy</td>
+                                                                <td>400</td>
+                                                                <td>100%</td>
+                                                                <td>T100%</td>
                                                             </tr>
                                                             <tr> 
                                                                 <td>5</th>
                                                                 <td>300</td>
-                                                                <td>Training Accuracy</td>
-                                                                <td>Testing Accuracy</td>
+                                                                <td>100%</td>
+                                                                <td>100%</td>
+                                                            </tr>
+                                                            <tr> 
+                                                                <td>5</th>
+                                                                <td>200</td>
+                                                                <td>99.73%</td>
+                                                                <td>99.84%</td>
+                                                            </tr>
+                                                            <tr> 
+                                                                <td>4</td>
+                                                                <td>300</td>
+                                                                <td>99.76%</td>
+                                                                <td>99.76%</td>
+                                                            </tr>
+                                                            <tr> 
+                                                                <td>3</td>
+                                                                <td>100</td>
+                                                                <td>95.99%</td>
+                                                                <td>96.42%</td>
+                                                            </tr>
+                                                            <tr> 
+                                                                <td>2</td>
+                                                                <td>200</td>
+                                                                <td>96.18%</td>
+                                                                <td>96.34%</td>
                                                             </tr>
                                                         </table>
                                                         <br>
@@ -212,7 +285,7 @@
                                                         </p>
                                                         <br>
                                                         <h5>Branch of Our Random Forest Classification Model</h5>
-                                                        <img title="Branch of Random Forest" class="img-fluid mx-auto rounded" alt="randomForest_branch" src="https://github.com/Mreisinger1/diagnosis-prediction-tool/blob/main/Classification%20Models/RF/RandomForest_Visualization1.png?raw=true">
+                                                        <img title="Branch of Random Forest" class="img-fluid mx-auto rounded" alt="randomForest_branch" src="https://github.com/Mreisinger1/diagnosis-prediction-tool/blob/main/Classification%20Models/RF/RandomForest_Visualization2.png?raw=true">
                                                     </div>
                                                 </div>
                                             </div>
